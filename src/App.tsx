@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileLines, faListCheck, faDiagramProject, faEnvelope, faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faListCheck, faDiagramProject, faEnvelope, faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 
@@ -11,7 +11,6 @@ import Snackbar from '@mui/material/Snackbar';
 
 
 import IconButton from '@mui/material/IconButton';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 

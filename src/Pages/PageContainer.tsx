@@ -2,12 +2,6 @@ import React from 'react';
 
 import { Divider } from "antd";
 
-type PageContainerProps = {
-  content: string[],
-  className?: string,
-  fillScreen: boolean
-}
-
 function PageContainer(props: any) {
   const { title, className, bodyClassName, fillScreen } = props;
 

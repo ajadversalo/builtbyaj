@@ -2,10 +2,6 @@ import React from 'react';
 
 import PageContainer from '../Pages/PageContainer';
 
-type AboutProps = {
-    content: string[]
-}
-
 function About(props: any) {
     const { content } = props;
 
