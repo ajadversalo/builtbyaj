@@ -61,7 +61,7 @@ function Projects(props: ProjectsProps) {
                 </div>
                 <div className={"w-[100%] mt-6 2xl:pl-1"}>
                     <div className="text-md text-[#FFDD44] font-semibold hover:underline">
-                        <a href="https://www.centrawindows.com" target="_blank">Centra Windows</a>
+              <a href="https://www.centrawindows.com" target="_blank" rel="noreferrer">Centra Windows</a>
                     </div>
                     <div className="text-sm mt-1">
                         Centra Windows specializes in energy-efficient window and door replacements, offering customized products and installation services to improve home comfort and energy savings.
@@ -90,7 +90,7 @@ function Projects(props: ProjectsProps) {
                 </div>
                 <div className={"w-[100%] mt-6 2xl:pl-1"}>
                     <div className="text-md text-[#FFDD44] font-semibold hover:underline">
-                        <a href="https://www.genxys.com" target="_blank">GenXys Healthcare Systems</a>
+              <a href="https://www.genxys.com" target="_blank" rel="noreferrer">GenXys Healthcare Systems</a>
                     </div>
                     <div className="text-sm mt-1">
                         GenXys provides precision prescribing software that integrates pharmacogenetics and clinical data to help healthcare providers personalize medication choices, improving patient safety and reducing healthcare costs.
