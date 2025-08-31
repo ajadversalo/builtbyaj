@@ -3,16 +3,17 @@ import './App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileLines, faListCheck, faDiagramProject, faEnvelope, faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
-
+import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 
 import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-//import Tooltip from '@mui/material/Tooltip';
+
 
 import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
 
 import Collapse from '@mui/material/Collapse';
 
@@ -22,8 +23,7 @@ import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 import About from './Pages/About';
 
-import { Divider, Modal, Tooltip } from "antd";
-import skyline from "./skyline_white_transparent.svg";
+import { Modal, Tooltip } from "antd";
 
 import {
   aboutContent,
@@ -126,11 +126,13 @@ function App() {
     return (
       <div className="flex justify-center text-white fixed xl:bottom-0 pt-3 pb-3 z-[50] w-full mt-4 xl:mt-0">
         <div className="text-lg flex flex-row justify-between border-box w-full xl:w-[50%] pl-4 pr-4">
-          <IconButton onClick={() => window.open('https://www.linkedin.com/in/ajadversalo', '_blank')}>
-            <Tooltip title="Visit my LinkedIn profile">
-              <i className="fa-brands fa-linkedin text-white hover:text-blue-200"></i>
-            </Tooltip>
-          </IconButton>
+          {false &&
+            <IconButton onClick={() => window.open('https://www.linkedin.com/in/ajadversalo', '_blank')}>
+              <Tooltip title="Visit my LinkedIn profile">
+                <i className="fa-brands fa-linkedin text-white hover:text-blue-200"></i>
+              </Tooltip>
+            </IconButton>
+          }
           {false &&
             <span>
               <IconButton>
@@ -173,23 +175,21 @@ function App() {
         <div className="h-full flex items-center justify-center pl-2 pr-2 mt-[-1rem]">
           <div className={"w-[50rem] text-white p-2 mt-[-3rem] h-[25rem]"}>
             <div className={"text-5xl sm:text-6xl"}>
-              <section className="bg-black text-left py-16">
+              <section className="bg-black text-left">
                 <h1 className="relative w-fit mx-auto leading-none">
-                  {/* Background word */}
-
                   <div className="flex items-center gap-4">
                     <span
                       className="
-      font-bold 
-      text-[clamp(3rem,12vw,190px)] 
-      leading-[1] tracking-[-0.02em]
-      text-transparent bg-clip-text 
-      bg-gradient-to-b from-white to-gray-400
-      opacity-90
-      drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]
-      blur-[0.3px]
-      select-none
-    "
+                        font-bold 
+                        text-[clamp(3rem,12vw,190px)] 
+                        leading-[1] tracking-[-0.02em]
+                        text-transparent bg-clip-text 
+                        bg-gradient-to-b from-white to-gray-400
+                        opacity-90
+                        drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]
+                        blur-[0.3px]
+                        select-none
+                      "
                     >
                       {`AJ`}
                     </span>
@@ -201,21 +201,52 @@ function App() {
                   </div>
                   <span
                     className="
-        block relative z-10
-        -mt-[0.15em]            /* overlap amount: tweak between 0.10–0.18em */
-        font-bold 
-        text-[clamp(3rem,12vw,170px)]
-        leading-[1] tracking-[-0.02em]
-        text-white
-        drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]
-      "
+                      block relative z-10
+                      -mt-[0.15em]            /* overlap amount: tweak between 0.10–0.18em */
+                      font-bold 
+                      text-[clamp(3rem,12vw,170px)]
+                      leading-[1] tracking-[-0.02em]
+                      text-white
+                      drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]
+                    "
                   >
                     {`Adversalo`}
                   </span>
                 </h1>
-                <p className="mt-6 text-gray-400/90 text-lg tracking-tight">
-                  Shaping ideas into seamless solutions
+                <p className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold text-left">
+                  Full Stack Software Developer
                 </p>
+                <div className="mt-12">
+                <Marquee gradient={true} gradientColor="#000" speed={20}>
+                  <img src="./techstack/html5.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/css.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/javascript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/typescript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/redux.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/tailwindcss.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/mui.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/antdesign.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/react.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/nextdotjs.svg" alt="NextJs" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/nodedotjs.svg" alt="NodeJs" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/c_sharp.svg" alt="C#" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/sql_server.svg" alt="Sql Server" className="h-[50px] mx-4 object-contain" />
+                    {/* Duplicate for seamless looping */}
+                  <img src="./techstack/html5.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/css.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/javascript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/typescript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/redux.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/tailwindcss.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/mui.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/antdesign.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/react.svg" alt="React" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/nextdotjs.svg" alt="NextJs" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/nodedotjs.svg" alt="NodeJs" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/c_sharp.svg" alt="C#" className="h-[50px] mx-4 object-contain" />
+                  <img src="./techstack/sql_server.svg" alt="Sql Server" className="h-[50px] mx-4 object-contain" />
+                  </Marquee>
+                  </div>
               </section>
             </div>
 
@@ -226,7 +257,6 @@ function App() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
               >
-
               </motion.div>
             </Collapse>
             {!isAtTop &&
@@ -235,7 +265,7 @@ function App() {
               </a>
             }
 
-            {!showTechnicalSkills &&
+            {!showTechnicalSkills && false &&
               <div className="mt-8 hover:cursor-pointer hover:underline text-[#FFDD44]" onClick={() => setShowTechnicalSkills(true)}>View My Techical Skills <i className="fa-solid fa-chevron-right"></i></div>
             }
             <Collapse in={showTechnicalSkills}>
