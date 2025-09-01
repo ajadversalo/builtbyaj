@@ -39,3 +39,12 @@ code {
     mask-repeat: no-repeat;
 }
 
+/* Hide all scrollbars, just for the marquee area! */
+.marquee-hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+    .marquee-hide-scrollbar::-webkit-scrollbar { /* WebKit */
+        display: none;
+    }

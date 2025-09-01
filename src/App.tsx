@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
+import ReactDOM from "react-dom";
 import './App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,55 +10,247 @@ import { motion } from "framer-motion";
 import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
-
-import IconButton from '@mui/material/IconButton';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
+//import IconButton from '@mui/material/IconButton';
+//import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import Collapse from '@mui/material/Collapse';
 
-import Contact from './Pages//Contact';
+import Contact from './Pages/Contact';
 import Resume from './Pages/Resume';
 import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
-import About from './Pages/About';
+//import About from './Pages/About';
 
 import { Modal, Tooltip } from "antd";
 
 import {
-  aboutContent,
+  //aboutContent,
   productListGenXys,
   productListCentra
 } from '../src/data/data';
 
-function App() {
-  const [popupMsg, setPopupMsg] = useState('');
-  const [openPopup, setOpenPopup] = useState(false);
-  const [height, setHeight] = useState(window.innerHeight);
-  const [showResume, setShowResume] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const [isAtTop, setIsAtTop] = useState(true);
-  const [showTechnicalSkills, setShowTechnicalSkills] = useState(false);
+type TechStackItem = {
+  src: string;
+  alt: string;
+  desc: string;
+};
+
+type TooltipState = {
+  show: boolean;
+  x: number;
+  y: number;
+  content: ReactNode;
+};
+
+type AnchorLinkProps = {
+  href: string;
+  label: string;
+  selected: string | null;
+  setSelected: (val: string) => void;
+  onClick?: () => void;
+  children: ReactNode;
+};
+
+// GLASS TOOLTIP (PORTAL RENDERED)
+const GlassTooltip: React.FC<{ show: boolean; x: number; y: number; children: ReactNode }> = ({ show, x, y, children }) => {
+  return ReactDOM.createPortal(
+    <div
+      style={{
+        position: "fixed",
+        left: x,
+        top: y,
+        transform: "translate(-50%, -110%)",
+        zIndex: 9999,
+        pointerEvents: show ? "auto" : "none",
+      }}
+      className={`
+        bg-white/20 backdrop-blur-md shadow-xl rounded-sm
+        px-4 py-3 min-w-[1060px] text-white text-center min-h-[500px]
+        flex flex-col items-center
+        transition-opacity duration-700
+        ${show ? "opacity-100" : "opacity-0"}
+      `}
+    >
+      {children}
+    </div>,
+    document.body
+  );
+};
+
+
+const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
+  const { href, label, selected, setSelected, onClick, children } = props;
+  return (
+    <a
+      href={href}
+      className={`border-b-2 border-transparent hover:cursor-pointer hover:border-white ${selected === label ? "border-b-2 border-white" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
+      onClick={() => { setSelected(label); onClick?.() }}
+    >
+      {children}
+    </a>
+  );
+};
+
+const NavBar: React.FC<{
+  selected: string | null;
+  setSelected: (val: string) => void;
+  setShowResume: (val: boolean) => void;
+  onDownload: () => void;
+}> = ({ selected, setSelected, setShowResume, onDownload }) => (
+  <div
+    className="
+      flex justify-center text-white fixed bottom-0 xl:sticky xl:top-0
+      bg-white/10 backdrop-blur-md
+      pt-3 pb-3 z-[50] w-full shadow-lg
+      xl:rounded-b-2xl
+    "
+  >
+    <div className="text-xl flex flex-row justify-between border-box w-full xl:w-[40%] pl-4 pr-4">
+      {/* Uncomment if you want Skills */}
+      {false &&
+        <AnchorLink href={"#skills"} label={"Skills"} selected={selected} setSelected={setSelected}>
+          <div className="flex flex-col xl:flex-row">
+            <FontAwesomeIcon icon={faListCheck} className="xl:mt-1" />
+            <span className="pl-2 text-sm xl:text-lg">Skills</span>
+          </div>
+        </AnchorLink>
+      }
+      <AnchorLink href={"#projects"} label={"Projects"} selected={selected} setSelected={setSelected}>
+        <div className="flex flex-col xl:flex-row">
+          <FontAwesomeIcon icon={faDiagramProject} className="xl:mt-1" />
+          <span className="pl-2 text-sm xl:text-lg">Portfolio</span>
+        </div>
+      </AnchorLink>
+      <AnchorLink href={"#contact"} label={"Contact"} selected={selected} setSelected={setSelected}>
+        <div className="flex flex-col xl:flex-row">
+          <FontAwesomeIcon icon={faEnvelope} className="xl:mt-1" />
+          <span className="pl-2 text-sm xl:text-lg">Contact</span>
+        </div>
+      </AnchorLink>
+      <div className="flex flex-col xl:flex-row">
+        <Tooltip title="Download My Resume">
+          <div className="flex justify-center">
+            <i className="fa-solid fa-file-arrow-down text-white hover:text-blue-200 xl:mt-1" onClick={() => onDownload()} />
+          </div>
+        </Tooltip>
+        <Tooltip title="View my Resume">
+          <span
+            className="text-white pl-0 xl:pl-2 text-sm xl:text-lg hover:cursor-pointer hover:text-blue-200"
+            onClick={() => setShowResume(true)}
+          >
+            My Resume
+          </span>
+        </Tooltip>
+      </div>
+      {/* Uncomment if you want About */}
+      {false && <AnchorLink href={"#about"} label={"About"} selected={selected} setSelected={setSelected}>About</AnchorLink>}
+    </div>
+  </div>
+);
+
+const SubNavBar: React.FC<{ onDownload: () => void; setShowResume: (val: boolean) => void }> = ({ onDownload, setShowResume }) => (
+  <div className="flex justify-center text-white fixed xl:bottom-0 pt-3 pb-3 z-[50] w-full mt-4 xl:mt-0">
+    <div className="text-lg flex flex-row justify-between border-box w-full xl:w-[50%] pl-4 pr-4">
+      {/* Put your SubNavBar content here if needed */}
+    </div>
+  </div>
+);
+
+const techStackData: TechStackItem[] = [
+  { src: "./techstack/html5.svg", alt: "HTML5", desc: "HTML5: Markup language" },
+  { src: "./techstack/css.svg", alt: "CSS", desc: "CSS: Styling" },
+  { src: "./techstack/javascript.svg", alt: "JavaScript", desc: "JS: Programming language" },
+  { src: "./techstack/typescript.svg", alt: "TypeScript", desc: "Type safety" },
+  { src: "./techstack/redux.svg", alt: "Redux", desc: "Redux: State management" },
+  { src: "./techstack/tailwindcss.svg", alt: "TailwindCSS", desc: "Utility-first CSS" },
+  { src: "./techstack/mui.svg", alt: "MUI", desc: "Material UI" },
+  { src: "./techstack/antdesign.svg", alt: "Ant Design", desc: "Ant Design" },
+  { src: "./techstack/react.svg", alt: "React", desc: "React: UI library" },
+  { src: "./techstack/nextdotjs.svg", alt: "Next.js", desc: "Next.js: SSR/SSG" },
+  { src: "./techstack/nodedotjs.svg", alt: "Node.js", desc: "Node.js: Backend" },
+  { src: "./techstack/c_sharp.svg", alt: "C#", desc: "C#: OOP Language" },
+  { src: "./techstack/sql_server.svg", alt: "SQL Server", desc: "Database" },
+];
+
+const TechStack: React.FC = () => {
+  
+
+  
+
+  return (
+    <>
+      <div
+        className="flex flex-row gap-4"
+        draggable={false}        
+      >
+        {techStackData.map(({ src, alt, desc }) => (
+          <div
+            key={alt}
+            className="mx-2"
+            style={{ minWidth: 60, minHeight: 50 }}
+          >
+            <img
+              src={src}
+              alt={alt}
+              className="h-[50px] object-contain transition-transform duration-200 hover:scale-110"
+              
+            />
+          </div>
+        ))}
+      </div>
+      
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  const [popupMsg, setPopupMsg] = useState<string>('');
+  const [openPopup, setOpenPopup] = useState<boolean>(false);
+  //const [height, setHeight] = useState<number>(window.innerHeight);
+  const [showResume, setShowResume] = useState<boolean>(false);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [isAtTop, setIsAtTop] = useState<boolean>(true);
+  const [showTechnicalSkills, setShowTechnicalSkills] = useState<boolean>(false);
+  const [tooltip, setTooltip] = useState<TooltipState>({
+    show: false,
+    x: 0,
+    y: 0,
+    content: null,
+  });
 
   useEffect(() => {
     document.title = 'Adversalo';
   }, []);
 
-  const getHeight = () => window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  //const getHeight = () => window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
   useEffect(() => {
     const resizeListener = () => {
-      setHeight(getHeight())
+      //setHeight(getHeight());
     };
     window.addEventListener('resize', resizeListener);
     return () => {
       window.removeEventListener('resize', resizeListener);
-    }
+    };
   }, []);
 
-  const handleClosePopup = () => {
-    setOpenPopup(false);
-  }
+  useEffect(() => {
+    const onScroll = () => {
+      function isScrolledToTop() {
+        return window?.pageYOffset === 0;
+      }
+
+      if (isScrolledToTop()) {
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleClosePopup = () => setOpenPopup(false);
 
   const onDownload = () => {
     const link = document.createElement('a');
@@ -66,109 +259,31 @@ function App() {
     link.click();
   };
 
-  const AnchorLink = (props: any) => {
-    const { href, label, selected, setSelected, onClick } = props;
-    return (
-      <a
-        href={href}
-        className={`border-b-2 border-transparent hover:cursor-pointer hover:border-white ${selected ? "border-b-2 border-white" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
-        onClick={() => { setSelected(label); onClick?.() }}
-      >
-        {props.children}
-      </a>
-    );
-  }
+  const handleMouseEnter = (
+    //e: MouseEvent<HTMLImageElement, globalThis.MouseEvent>,
+    //alt: string,
+    //desc: string
+  ) => {
+    //const rect = (e.target as HTMLElement).getBoundingClientRect();
+    setTooltip({
+      show: true,
+      x: 800,
+      y: 800,
+      content: (
+        <>
+          <div>Hello World</div>
+        </>
+      ),
+    });
+  };
 
-  const NavBar = () => {
-    return (
-      <div className="flex justify-center text-white fixed bottom-0 xl:sticky xl:top-0 bg-gray-900 pt-3 pb-3 z-[50] w-full">
-        <div className="text-xl flex flex-row justify-between border-box w-full xl:w-[40%] pl-4 pr-4">
-          {false &&
-            <AnchorLink href={"#skills"} label={"Skills"} selected={selected === "Skills"} setSelected={setSelected}>
-              <div className="flex flex-col xl:flex-row">
-                <FontAwesomeIcon icon={faListCheck} className="xl:mt-1" />
-                <span className="pl-2 text-sm xl:text-lg">Skills</span>
-              </div>
-            </AnchorLink>
-          }
-          <AnchorLink href={"#projects"} label={"Projects"} selected={selected === "Projects"} setSelected={setSelected}>
-            <div className="flex flex-col xl:flex-row">
-              <FontAwesomeIcon icon={faDiagramProject} className="xl:mt-1" />
-              <span className="pl-2 text-sm xl:text-lg">Portfolio</span>
-            </div>
-          </AnchorLink>
-          <AnchorLink href={"#contact"} label={"Contact"} selected={selected === "Contact"} setSelected={setSelected}>
-            <div className="flex flex-col xl:flex-row">
-              <FontAwesomeIcon icon={faEnvelope} className="xl:mt-1" />
-              <span className="pl-2 text-sm xl:text-lg">Contact</span>
-            </div>
-          </AnchorLink>
-          <div className="flex flex-col xl:flex-row">
-            <Tooltip title="Download My Resume">
-              <div className="flex justify-center">
-                <i className="fa-solid fa-file-arrow-down text-white hover:text-blue-200 xl:mt-1" onClick={() => onDownload()} />
-              </div>
-            </Tooltip>
-            <Tooltip title="View my Resume">
-              <span className="text-white pl-0 xl:pl-2 text-sm xl:text-lg hover:cursor-pointer hover:text-blue-200" onClick={() => setShowResume(true)}>
-                My Resume
-              </span>
-            </Tooltip>
-          </div>
-          {false && <AnchorLink href={"#about"} label={"About"} />}
-        </div>
-      </div>
-    );
-  }
-
-  const SubNavBar = () => {
-    return (
-      <div className="flex justify-center text-white fixed xl:bottom-0 pt-3 pb-3 z-[50] w-full mt-4 xl:mt-0">
-        <div className="text-lg flex flex-row justify-between border-box w-full xl:w-[50%] pl-4 pr-4">
-          {false &&
-            <IconButton onClick={() => window.open('https://www.linkedin.com/in/ajadversalo', '_blank')}>
-              <Tooltip title="Visit my LinkedIn profile">
-                <i className="fa-brands fa-linkedin text-white hover:text-blue-200"></i>
-              </Tooltip>
-            </IconButton>
-          }
-          {false &&
-            <span>
-              <IconButton>
-                <Tooltip title="Download My Resume">
-                  <i className="fa-solid fa-file-arrow-down text-white hover:text-blue-200" onClick={() => onDownload()} />
-                </Tooltip>
-              </IconButton>
-              <Tooltip title="View my Resume">
-                <span className="text-white pl-2 text-[16px] hover:cursor-pointer hover:text-blue-200" onClick={() => setShowResume(true)}>My Resume</span>
-              </Tooltip>
-            </span>
-          }
-        </div>
-      </div>
-    );
-  }
-
-  window.addEventListener('scroll', () => {
-    function isScrolledToTop() {
-      return window?.pageYOffset === 0;
-    }
-
-    if (isScrolledToTop()) {
-      setIsAtTop(true);
-    } else {
-      setIsAtTop(false);
-    }
-  });
-
+  const handleMouseLeave = () =>
+    setTooltip({ show: false, x: 0, y: 0, content: null });
 
   return (
-    <div className="relative bg-[#000]" id="top">
-      <NavBar />
-
-      {isAtTop &&
-        <SubNavBar />
-      }
+    <div className="relative bg-[#000] pt-4" id="top">
+      <NavBar selected={selected} setSelected={setSelected} setShowResume={setShowResume} onDownload={onDownload} />
+      {isAtTop && <SubNavBar onDownload={onDownload} setShowResume={setShowResume} />}
 
       <div className="h-screen">
         <div className="h-full flex items-center justify-center pl-2 pr-2 mt-[-1rem]">
@@ -201,7 +316,7 @@ function App() {
                   <span
                     className="
                       block relative z-10
-                      -mt-[0.15em]            /* overlap amount: tweak between 0.10–0.18em */
+                      -mt-[0.15em]
                       font-bold 
                       text-[clamp(3rem,12vw,170px)]
                       leading-[1] tracking-[-0.02em]
@@ -212,40 +327,16 @@ function App() {
                     {`Adversalo`}
                   </span>
                 </h1>
-                <p className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold text-left">
+                <p className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold text-left" >
                   Full Stack Software Developer
                 </p>
-                <div className="mt-12">
-                <Marquee gradient={true} gradientColor="#000" speed={20}>
-                  <img src="./techstack/html5.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/css.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/javascript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/typescript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/redux.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/tailwindcss.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/mui.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/antdesign.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/react.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/nextdotjs.svg" alt="NextJs" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/nodedotjs.svg" alt="NodeJs" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/c_sharp.svg" alt="C#" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/sql_server.svg" alt="Sql Server" className="h-[50px] mx-4 object-contain" />
-                    {/* Duplicate for seamless looping */}
-                  <img src="./techstack/html5.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/css.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/javascript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/typescript.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/redux.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/tailwindcss.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/mui.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/antdesign.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/react.svg" alt="React" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/nextdotjs.svg" alt="NextJs" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/nodedotjs.svg" alt="NodeJs" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/c_sharp.svg" alt="C#" className="h-[50px] mx-4 object-contain" />
-                  <img src="./techstack/sql_server.svg" alt="Sql Server" className="h-[50px] mx-4 object-contain" />
+                <div className="mt-12 overflow-y-hidden" onMouseEnter={e => handleMouseEnter()}
+                  onMouseLeave={handleMouseLeave}>
+                  <Marquee gradient={true} gradientColor="#000" speed={20} className="overflow-y-hidden hover:cursor-pointer">
+                    <TechStack />
+                    <TechStack />
                   </Marquee>
-                  </div>
+                </div>
               </section>
             </div>
 
@@ -274,22 +365,7 @@ function App() {
             </Collapse>
           </div>
         </div>
-
-        {false &&
-          <div className={""} style={height < 550 ? { position: 'relative', paddingTop: '2rem' } : { position: 'absolute', bottom: 15 }}>
-            <IconButton onClick={() => window.open('https://www.linkedin.com/in/ajadversalo', '_blank')}>
-              {<LinkedInIcon className={""} />}
-            </IconButton>
-          </div>
-        }
       </div>
-
-      {false &&
-        <>
-          <div id="about" className=""></div>
-          <About content={aboutContent} />
-        </>
-      }
 
       <div className="flex justify-center">
         <div id="projects" className=""></div>
@@ -329,8 +405,11 @@ function App() {
           {popupMsg}
         </MuiAlert>
       </Snackbar>
+      <GlassTooltip show={tooltip.show} x={tooltip.x} y={tooltip.y}>
+        {tooltip.content}
+      </GlassTooltip>
     </div>
   );
-}
+};
 
 export default App;
