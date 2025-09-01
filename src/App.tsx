@@ -332,7 +332,7 @@ const App: React.FC = () => {
                 </p>
                 <div className="mt-12 overflow-y-hidden" onMouseEnter={e => handleMouseEnter()}
                   onMouseLeave={handleMouseLeave}>
-                  <Marquee gradient={true} gradientColor="#000" speed={20} className="overflow-y-hidden hover:cursor-pointer">
+                  <Marquee gradient={true} gradientColor="#000" speed={20} className="overflow-y-hidden hover:cursor-pointer" play={!tooltip.show}>
                     <TechStack />
                     <TechStack />
                   </Marquee>
