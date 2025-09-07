@@ -300,8 +300,12 @@ const Landing: React.FC = () => {
                 <p className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold text-left" >
                   Full Stack Software Developer
                 </p>
-                <div className="mt-12 overflow-y-hidden" onMouseEnter={e => handleMouseEnter()}
-                  onMouseLeave={handleMouseLeave}>
+                <div
+                  className="mt-12 overflow-y-hidden"
+                  onMouseEnter={e => handleMouseEnter()}
+                  onMouseLeave={handleMouseLeave}
+                  title="View My Skills"
+                >
                   <Marquee gradient={true} gradientColor="#000" speed={20} className="overflow-y-hidden hover:cursor-pointer" play={!tooltip.show}>
                     <TechStack />
                     <TechStack />
@@ -375,7 +379,7 @@ const Landing: React.FC = () => {
           {popupMsg}
         </MuiAlert>
       </Snackbar>
-      <GlassTooltip show={tooltip.show}>
+      <GlassTooltip show={false}>
         <h1>Hello, I'm Centered!</h1>
       </GlassTooltip>
     </div>
