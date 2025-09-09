@@ -155,8 +155,8 @@ const SubNavBar: React.FC<{ onDownload: () => void; setShowResume: (val: boolean
 
 const techStackData: TechStackItem[] = [
     { src: "./techstack/html5.svg", alt: "HTML5", desc: "HTML5: Markup language" },
-    { src: "./techstack/css.svg", alt: "CSS", desc: "CSS: Styling" },
     { src: "./techstack/javascript.svg", alt: "JavaScript", desc: "JS: Programming language" },
+    { src: "./techstack/css.svg", alt: "CSS", desc: "CSS: Styling" },    
     { src: "./techstack/typescript.svg", alt: "TypeScript", desc: "Type safety" },
     { src: "./techstack/redux.svg", alt: "Redux", desc: "Redux: State management" },
     { src: "./techstack/tailwindcss.svg", alt: "TailwindCSS", desc: "Utility-first CSS" },
@@ -172,14 +172,14 @@ const techStackData: TechStackItem[] = [
 const TechStack: React.FC = () => {
     return (       
         <div
-            className="flex flex-row gap-4"
+            className="flex flex-row gap-2"
             draggable={false}
         >
             {techStackData.map(({ src, alt, desc }) => (
                 <div
                     key={alt}
                     className="mx-2"
-                    style={{ minWidth: 60, minHeight: 50 }}
+                    style={{  minHeight: 50 }}
                 >
                     <img
                         src={src}
