@@ -258,7 +258,8 @@ const Landing: React.FC = () => {
                     <div className={"text-white p-2 mt-[-3rem] h-[25rem]"}>
                         <div className={"text-5xl sm:text-6xl"}>
                             <section className="bg-black text-left">
-                                <h1 className="relative w-fit mx-auto leading-none">
+                                <div className="relative w-fit mx-auto leading-none">
+                                    {/*
                                     <div className="flex items-center gap-4">
                                         <span
                                             className="
@@ -281,7 +282,23 @@ const Landing: React.FC = () => {
                                             className="h-[200px] sm:h-[300px] object-contain mt-[-7rem] ml-4"
                                         />
                                     </div>
-                                    <span
+                                    */}
+                                    <div
+                                        className="
+                                                font-bold 
+                                                text-[clamp(3rem,12vw,190px)] 
+                                                leading-[1] tracking-[-0.02em]
+                                                text-transparent bg-clip-text 
+                                                bg-gradient-to-b from-white to-gray-400
+                                                opacity-90
+                                                drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]
+                                                blur-[0.3px]
+                                                select-none
+                                              "
+                                    >
+                                        {`AJ`}
+                                    </div>
+                                    <div
                                         className="
                                           block relative z-10
                                           -mt-[0.15em]
@@ -293,11 +310,12 @@ const Landing: React.FC = () => {
                                         "
                                     >
                                         {`Adversalo`}
-                                    </span>
-                                </h1>
-                                <p className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold text-left" >
-                                    Full Stack Software Developer
-                                </p>
+                                    </div>
+                                    <div className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold" >
+                                        Full Stack Software Developer
+                                    </div>
+                                </div>
+                                
                                 <div
                                     className="mt-12 overflow-y-hidden max-w-[50rem] w-[28rem] w-full sm:w-[42rem] md:w-[50rem]"
                                     onMouseEnter={e => handleMouseEnter()}
