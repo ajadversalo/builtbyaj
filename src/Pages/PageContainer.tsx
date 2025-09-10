@@ -3,10 +3,10 @@ import React from 'react';
 import { Divider } from "antd";
 
 function PageContainer(props: any) {
-  const { title, className, bodyClassName, fillScreen } = props;
+  const { id, title, className, bodyClassName, fillScreen } = props;
 
   return (
-    <div className={`text-white p-4 ${fillScreen ? "h-screen" : "lg:h-100"} lg:pt-16 ${className}`}>
+    <div id={id} className={`text-white p-4 ${fillScreen ? "h-screen" : "lg:h-100"} lg:pt-16 ${className}`}>
       <div className="flex items-center justify-center">
         <div className="w-full xl:w-[70%] 2xl:w-[50%]">
           <h2 className={"text-2xl"}>{title}</h2>

@@ -12,12 +12,13 @@ type ProductCardProps = {
 }
 
 type ProjectsProps = {
+    id: string
     productList: Array<ProductCardProps>
     productListCentra: Array<ProductCardProps>
 }
 
 function Projects(props: ProjectsProps) {
-    const { productList, productListCentra } = props;
+    const { id, productList, productListCentra } = props;
 
     const ProductCard = (props: ProductCardProps) => {
         return (
@@ -51,8 +52,8 @@ function Projects(props: ProjectsProps) {
     }
 
     return (
-        <PageContainer title="Application Portfolio">
-            <div className="flex flex-col 2xl:flex-row">
+        <PageContainer title="Application Portfolio" id={id}>
+            <div className="flex flex-col 2xl:flex-row" >
                 <div className={"w-[20%]"}>
                     <img
                         src={`./centra-logo.png`}

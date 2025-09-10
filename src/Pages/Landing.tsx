@@ -19,6 +19,7 @@ import Resume from './Resume';
 import Skills from './Skills';
 import Projects from './Projects';
 //import About from './Pages/About';
+import SkillsNew from './Skills2';
 
 import { Modal, Tooltip } from "antd";
 
@@ -317,13 +318,15 @@ const Landing: React.FC = () => {
             </div>
 
             <div className="flex justify-center">
-                <div id="projects" className=""></div>
-                <Projects
-                    productList={productListGenXys}
-                    productListCentra={productListCentra}
-                />
+                <SkillsNew />
             </div>
-
+                     
+            <Projects
+                id="projects"
+                productList={productListGenXys}
+                productListCentra={productListCentra}
+            />
+           
             <div className="flex justify-center">
                 <div id="contact" className=""></div>
                 <Contact
