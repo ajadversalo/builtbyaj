@@ -258,58 +258,46 @@ const Landing: React.FC = () => {
                     <div className={"text-white p-2 mt-[-3rem] h-[25rem]"}>
                         <div className={"text-5xl sm:text-6xl"}>
                             <section className="bg-black text-left">
-                                <div className="relative w-fit mx-auto leading-none">
-                                    {/*
-                                    <div className="flex items-center gap-4">
-                                        <span
-                                            className="
-                                                font-bold 
-                                                text-[clamp(3rem,12vw,190px)] 
-                                                leading-[1] tracking-[-0.02em]
-                                                text-transparent bg-clip-text 
-                                                bg-gradient-to-b from-white to-gray-400
-                                                opacity-90
-                                                drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]
-                                                blur-[0.3px]
-                                                select-none
-                                              "
-                                        >
-                                            {`AJ`}
-                                        </span>
+                                <div className="relative w-fit mx-auto leading-none">                                   
+                                    <div className="relative flex flex-col items-start">
+                                        {/* Background image */}
                                         <img
                                             src="./phonelaptop.png"
-                                            alt="Skyline"
-                                            className="h-[200px] sm:h-[300px] object-contain mt-[-7rem] ml-4"
+                                            alt="phone-laptop"
+                                            className="absolute sm:left-20 md:left-40 lg:left-80 top-[-7rem] h-[200px] sm:h-[300px] object-contain z-0"
                                         />
-                                    </div>
-                                    */}
-                                    <div
-                                        className="
-                                                font-bold 
-                                                text-[clamp(3rem,12vw,190px)] 
-                                                leading-[1] tracking-[-0.02em]
-                                                text-transparent bg-clip-text 
-                                                bg-gradient-to-b from-white to-gray-400
-                                                opacity-90
-                                                drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]
-                                                blur-[0.3px]
-                                                select-none
-                                              "
-                                    >
-                                        {`AJ`}
-                                    </div>
-                                    <div
-                                        className="
-                                          block relative z-10
-                                          -mt-[0.15em]
-                                          font-bold 
-                                          text-[clamp(3rem,12vw,170px)]
-                                          leading-[1] tracking-[-0.02em]
-                                          text-white
-                                          drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]
-                                        "
-                                    >
-                                        {`Adversalo`}
+
+                                        {/* Foreground text */}
+                                        <div
+                                            className="
+                                              font-bold 
+                                              text-[clamp(3rem,12vw,190px)] 
+                                              leading-[1] tracking-[-0.02em]
+                                              text-transparent bg-clip-text 
+                                              bg-gradient-to-b from-white to-gray-400
+                                              opacity-90
+                                              drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)]
+                                              blur-[0.3px]
+                                              select-none
+                                              relative z-10
+                                            "
+                                        >
+                                            {`AJ`}
+                                        </div>
+
+                                        <div
+                                            className="
+                                              -mt-[0.15em]
+                                              font-bold 
+                                              text-[clamp(3rem,12vw,170px)]
+                                              leading-[1] tracking-[-0.02em]
+                                              text-white
+                                              drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]
+                                              relative z-10
+                                            "
+                                        >
+                                            {`Adversalo`}
+                                        </div>
                                     </div>
                                     <div className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold" >
                                         Full Stack Software Developer
