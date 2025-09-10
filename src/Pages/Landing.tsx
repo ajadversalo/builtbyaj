@@ -1,5 +1,4 @@
 import React, { useState, useEffect, ReactNode } from 'react';
-import ReactDOM from "react-dom";
 import '../App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,11 +34,6 @@ type TechStackItem = {
     desc: string;
 };
 
-type GlassTooltipProps = {
-    show: boolean;
-    children: ReactNode;
-};
-
 type AnchorLinkProps = {
     href: string;
     label: string;
@@ -47,32 +41,6 @@ type AnchorLinkProps = {
     setSelected: (val: string) => void;
     onClick?: () => void;
     children: ReactNode;
-};
-
-// GLASS TOOLTIP (PORTAL RENDERED)
-const GlassTooltip: React.FC<GlassTooltipProps> = ({ show, children }) => {
-    return ReactDOM.createPortal(
-        <div
-            style={{
-                position: "fixed",
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)", // Center horizontally and vertically
-                zIndex: 9999,
-                pointerEvents: show ? "auto" : "none",
-            }}
-            className={`
-        bg-white/20 backdrop-blur-xl shadow-xl rounded-lg
-        px-4 py-3 min-w-[1060px] text-white text-center min-h-[500px]
-        flex flex-col items-center justify-center
-        transition-opacity duration-700
-        ${show ? "opacity-100" : "opacity-0"}
-      `}
-        >
-            {children}
-        </div>,
-        document.body
-    );
 };
 
 const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
@@ -260,14 +228,11 @@ const Landing: React.FC = () => {
                             <section className="bg-black text-left">
                                 <div className="relative w-fit mx-auto leading-none">                                   
                                     <div className="relative flex flex-col items-start">
-                                        {/* Background image */}
                                         <img
                                             src="./phonelaptop.png"
                                             alt="phone-laptop"
                                             className="absolute sm:left-20 md:left-40 lg:left-80 top-[-7rem] h-[200px] sm:h-[300px] object-contain z-0"
                                         />
-
-                                        {/* Foreground text */}
                                         <div
                                             className="
                                               font-bold 
@@ -389,9 +354,6 @@ const Landing: React.FC = () => {
                     {popupMsg}
                 </MuiAlert>
             </Snackbar>
-            <GlassTooltip show={false}>
-                <h1>Hello, I'm Centered!</h1>
-            </GlassTooltip>
         </div>
     );
 };
