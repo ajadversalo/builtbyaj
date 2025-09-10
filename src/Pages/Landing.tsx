@@ -305,7 +305,7 @@ const Landing: React.FC = () => {
                                 </div>
                                 
                                 <div
-                                    className="mt-12 overflow-y-hidden max-w-[50rem] w-[28rem] w-full sm:w-[42rem] md:w-[50rem]"
+                                    className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
                                     onMouseEnter={e => handleMouseEnter()}
                                     onMouseLeave={handleMouseLeave}
                                     title="View My Skills"
