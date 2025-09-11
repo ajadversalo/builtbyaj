@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import PageContainer from '../Pages/PageContainer';
+import PageContainer from '../components/PageContainer';
 
 import emailjs from 'emailjs-com';
 

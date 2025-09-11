@@ -14,14 +14,14 @@ import Snackbar from '@mui/material/Snackbar';
 
 import Collapse from '@mui/material/Collapse';
 
-import Contact from './Contact';
-import Resume from './Resume';
-import Skills from './Skills';
-import Projects from './Projects';
+import Contact from '../components/Contact';
+import Resume from '../components/Resume';
+import Skills from '../components/Skills';
+import Projects from '../components/Projects';
 //import About from './Pages/About';
-import SkillsNew from './Skills2';
-import Hero from "./Hero";
-import Navbar from "./Navbar";
+import SkillsNew from '../components/Skills2';
+import Hero from "../components/Hero";
+import Navbar from "../components/Navbar";
 
 import { Modal } from "antd";
 

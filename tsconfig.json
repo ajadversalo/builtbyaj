@@ -7,7 +7,7 @@
       "@hooks/*": [ "hooks/*" ],
       "@lib/*": [ "lib/*" ],
       "@types/*": [ "types/*" ],
-      "@Pages/*": [ "Pages/*" ]
+      "@pages/*": [ "Pages/*" ]
     },
     "target": "esnext",
     "module": "esnext",

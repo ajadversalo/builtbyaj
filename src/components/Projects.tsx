@@ -1,5 +1,5 @@
 import React from 'react';
-import PageContainer from '../Pages/PageContainer';
+import PageContainer from '../components/PageContainer';
 
 import { Divider, Tooltip } from "antd";
 
