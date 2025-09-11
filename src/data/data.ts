@@ -89,6 +89,17 @@ export const productListCentra = [
     },
 ];
 
+const skillsByCategory = {
+  Frontend: [
+    { name: "React", image: "/images/react.png" },
+    { name: "Next.js", image: "/images/nextjs.png" },
+  ],
+  Backend: [
+    { name: "C#", image: "/images/csharp.png" },
+    { name: ".NET", image: "/images/dotnet.png" },
+  ],
+};
+
 export const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // eslint-disable-line
 
             /* -------------------------------------

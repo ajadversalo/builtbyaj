@@ -1,0 +1,243 @@
+import React, { useState, useEffect } from 'react';
+import '../App.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
+import Marquee from "react-fast-marquee";
+import { motion } from "framer-motion";
+
+import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+
+//import IconButton from '@mui/material/IconButton';
+//import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+import Collapse from '@mui/material/Collapse';
+
+import Contact from './Contact';
+import Resume from './Resume';
+import Skills from './Skills';
+import Projects from './Projects';
+//import About from './Pages/About';
+import SkillsNew from './Skills2';
+import Hero from "./Hero";
+import Navbar from "./Navbar";
+
+import { Modal } from "antd";
+
+import {
+  //aboutContent,
+  productListGenXys,
+  productListCentra
+} from '../../src/data/data';
+
+type TechStackItem = {
+  src: string;
+  alt: string;
+  desc: string;
+};
+
+const SubNavBar: React.FC<{ onDownload: () => void; setShowResume: (val: boolean) => void }> = ({ onDownload, setShowResume }) => (
+  <div className="flex justify-center text-white fixed xl:bottom-0 pt-3 pb-3 z-[50] w-full mt-4 xl:mt-0">
+    <div className="text-lg flex flex-row justify-between border-box w-full xl:w-[50%] pl-4 pr-4">
+
+    </div>
+  </div>
+);
+
+const techStackData: TechStackItem[] = [
+  { src: "./tech_logos/html5.svg", alt: "HTML5", desc: "HTML5: Markup language" },
+  { src: "./tech_logos/javascript.svg", alt: "JavaScript", desc: "JS: Programming language" },
+  { src: "./tech_logos/css.svg", alt: "CSS", desc: "CSS: Styling" },
+  { src: "./tech_logos/typescript.svg", alt: "TypeScript", desc: "Type safety" },
+  { src: "./tech_logos/redux.svg", alt: "Redux", desc: "Redux: State management" },
+  { src: "./tech_logos/tailwindcss.svg", alt: "TailwindCSS", desc: "Utility-first CSS" },
+  { src: "./tech_logos/mui.svg", alt: "MUI", desc: "Material UI" },
+  { src: "./tech_logos/antdesign.svg", alt: "Ant Design", desc: "Ant Design" },
+  { src: "./tech_logos/react.svg", alt: "React", desc: "React: UI library" },
+  { src: "./tech_logos/nextdotjs.svg", alt: "Next.js", desc: "Next.js: SSR/SSG" },
+  { src: "./tech_logos/nodedotjs.svg", alt: "Node.js", desc: "Node.js: Backend" },
+  { src: "./tech_logos/c_sharp.svg", alt: "C#", desc: "C#: OOP Language" },
+  { src: "./tech_logos/sql_server.svg", alt: "SQL Server", desc: "Database" },
+];
+
+const TechStack: React.FC = () => {
+  return (
+    <div
+      className="flex flex-row gap-2"
+      draggable={false}
+    >
+      {techStackData.map(({ src, alt, desc }) => (
+        <div
+          key={alt}
+          className="mx-2"
+          style={{ minHeight: 50 }}
+        >
+          <img
+            src={src}
+            alt={alt}
+            className="h-[30px] sm:h-[40px] md:h-[50px] object-contain transition-transform duration-200 hover:scale-110"
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Home: React.FC = () => {
+  const [popupMsg, setPopupMsg] = useState<string>('');
+  const [openPopup, setOpenPopup] = useState<boolean>(false);
+  const [showResume, setShowResume] = useState<boolean>(false);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [isAtTop, setIsAtTop] = useState<boolean>(true);
+  const [showTechnicalSkills, setShowTechnicalSkills] = useState<boolean>(false);
+  const [tooltip, setTooltip] = useState<{ show: boolean }>({
+    show: false
+  });
+
+  useEffect(() => {
+    document.title = 'Adversalo';
+  }, []);
+
+  useEffect(() => {
+    const resizeListener = () => {
+      //setHeight(getHeight());
+    };
+    window.addEventListener('resize', resizeListener);
+    return () => {
+      window.removeEventListener('resize', resizeListener);
+    };
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      function isScrolledToTop() {
+        return window?.pageYOffset === 0;
+      }
+      if (isScrolledToTop()) {
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleClosePopup = () => setOpenPopup(false);
+
+  const onDownload = () => {
+    const link = document.createElement('a');
+    link.download = 'ajadversalo-resume.pdf';
+    link.href = 'resume.pdf';
+    link.click();
+  };
+
+  const handleMouseEnter = () => {
+    setTooltip({ show: true });
+  };
+
+  const handleMouseLeave = () =>
+    setTooltip({ show: false });
+
+  return (
+    <div className="relative bg-[#000] pt-4" id="top">
+      <Navbar selected={selected} setSelected={setSelected} setShowResume={setShowResume} onDownload={onDownload} />
+      {isAtTop && <SubNavBar onDownload={onDownload} setShowResume={setShowResume} />}
+
+      <div className="h-screen">
+        <div className="h-full flex items-center justify-center pl-2 pr-2 mt-[-1rem]">
+          <div className={"text-white p-2 mt-[-3rem] h-[25rem]"}>
+            <div className={"text-5xl sm:text-6xl"}>
+              <section className="bg-black text-left">
+                <Hero />
+                <div
+                  className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
+                  onMouseEnter={e => handleMouseEnter()}
+                  onMouseLeave={handleMouseLeave}
+                  title="View My Skills"
+                >
+                  <Marquee
+                    gradient={true}
+                    gradientColor="#000"
+                    speed={20}
+                    className="overflow-y-hidden hover:cursor-pointer"
+                    play={!tooltip.show}
+                  >
+                    <TechStack />
+                    <TechStack />
+                  </Marquee>
+                </div>
+              </section>
+            </div>
+
+            <Collapse in={!showTechnicalSkills}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              >
+              </motion.div>
+            </Collapse>
+            {!isAtTop &&
+              <a href={"#top"}>
+                <FontAwesomeIcon icon={faCircleChevronUp} size="2xl" className="fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer" />
+              </a>
+            }
+
+            {!showTechnicalSkills && false &&
+              <div className="mt-8 hover:cursor-pointer hover:underline text-[#FFDD44]" onClick={() => setShowTechnicalSkills(true)}>View My Techical Skills <i className="fa-solid fa-chevron-right"></i></div>
+            }
+            <Collapse in={showTechnicalSkills}>
+              <div className="">
+                <Skills />
+              </div>
+            </Collapse>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <SkillsNew />
+      </div>
+
+      <Projects
+        id="projects"
+        productList={productListGenXys}
+        productListCentra={productListCentra}
+      />
+
+      <Contact
+        id="contact"
+        setOpenPopup={setOpenPopup}
+        setPopupMsg={setPopupMsg}
+        setOpen={() => { }}
+      />
+     
+      <Modal
+        open={showResume}
+        width={1000}
+        footer={null}
+        onCancel={() => setShowResume(false)}
+        style={{ marginTop: "-5rem" }}
+      >
+        <Resume />
+      </Modal>
+      <Snackbar
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        open={openPopup}
+        autoHideDuration={5000}
+        onClose={handleClosePopup}>
+        <MuiAlert
+          severity={'info'}
+          variant='filled'
+          onClose={handleClosePopup}>
+          {popupMsg}
+        </MuiAlert>
+      </Snackbar>
+    </div>
+  );
+};
+
+export default Home;
