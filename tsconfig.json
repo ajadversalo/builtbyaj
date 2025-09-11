@@ -1,22 +1,24 @@
 {
   "compilerOptions": {
-    "baseUrl": "src", // <-- this is the key
-    "paths": {
-      "@components/*": [ "components/*" ],
-      "@sections/*": [ "sections/*" ],
-      "@hooks/*": [ "hooks/*" ],
-      "@lib/*": [ "lib/*" ],
-      "@types/*": [ "types/*" ],
-      "@pages/*": [ "Pages/*" ]
-    },
-    "target": "esnext",
-    "module": "esnext",
-    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": [ "dom", "dom.iterable", "esnext" ],
+    "allowJs": true,
+    "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "src/",
+    "paths": {
+      "@/styles/*": [ "styles/*" ],
+      "@/components/*": [ "components/*" ]
+    }
   },
-  "include": [ "next-env.d.ts", "src/**/*" ],
+  "include": [ "next-env.d.ts", "**/*.ts", "**/*.tsx" ],
   "exclude": [ "node_modules" ]
 }

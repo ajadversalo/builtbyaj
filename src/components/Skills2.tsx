@@ -1,5 +1,5 @@
 import React from 'react';
-import PageContainer from '../components/PageContainer';
+import PageContainer from 'components/PageContainer';
 
 type SkillCategory =
     | "UI / Front-End"
@@ -62,7 +62,7 @@ const skills: Record<SkillCategory, Skill[]> = {
         { id: "openai", name: "OpenAI API", category: "Other Tools & Integration", image: { src: "https://seeklogo.com/images/O/openai-logo-8B9BFEDC26-seeklogo.com.png", alt: "OpenAI" } },
     ],
 };
-function Skills() {
+function Skills2() {
     return (
         <PageContainer title="Skills" className="w-full">
             <div className="flex flex-col gap-6">
@@ -90,4 +90,4 @@ function Skills() {
     );
 }
 
-export default Skills;
+export default Skills2;
