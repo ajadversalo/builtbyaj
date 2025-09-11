@@ -1,8 +1,8 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faListCheck, faDiagramProject, faEnvelope, faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 
@@ -21,8 +21,9 @@ import Projects from './Projects';
 //import About from './Pages/About';
 import SkillsNew from './Skills2';
 import Hero from "./Hero";
+import Navbar from "./Navbar";
 
-import { Modal, Tooltip } from "antd";
+import { Modal } from "antd";
 
 import {
   //aboutContent,
@@ -35,83 +36,6 @@ type TechStackItem = {
   alt: string;
   desc: string;
 };
-
-type AnchorLinkProps = {
-  href: string;
-  label: string;
-  selected: string | null;
-  setSelected: (val: string) => void;
-  onClick?: () => void;
-  children: ReactNode;
-};
-
-const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
-  const { href, label, selected, setSelected, onClick, children } = props;
-  return (
-    <a
-      href={href}
-      className={`border-b-2 border-transparent hover:cursor-pointer hover:border-white ${selected === label ? "border-b-2 border-white" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
-      onClick={() => { setSelected(label); onClick?.() }}
-    >
-      {children}
-    </a>
-  );
-};
-
-const NavBar: React.FC<{
-  selected: string | null;
-  setSelected: (val: string) => void;
-  setShowResume: (val: boolean) => void;
-  onDownload: () => void;
-}> = ({ selected, setSelected, setShowResume, onDownload }) => (
-  <div
-    className="
-      flex justify-center text-white fixed bottom-0 xl:sticky xl:top-0
-      bg-white/10 backdrop-blur-md
-      pt-3 pb-3 z-[50] w-full shadow-lg
-      xl:rounded-b-2xl
-    "
-  >
-    <div className="text-xl flex flex-row justify-between border-box w-full xl:w-[40%] pl-4 pr-4">
-      {false &&
-        <AnchorLink href={"#skills"} label={"Skills"} selected={selected} setSelected={setSelected}>
-          <div className="flex flex-col xl:flex-row">
-            <FontAwesomeIcon icon={faListCheck} className="xl:mt-1" />
-            <span className="pl-2 text-sm xl:text-lg">Skills</span>
-          </div>
-        </AnchorLink>
-      }
-      <AnchorLink href={"#projects"} label={"Projects"} selected={selected} setSelected={setSelected}>
-        <div className="flex flex-col xl:flex-row">
-          <FontAwesomeIcon icon={faDiagramProject} className="xl:mt-1" />
-          <span className="pl-2 text-sm xl:text-lg">Portfolio</span>
-        </div>
-      </AnchorLink>
-      <AnchorLink href={"#contact"} label={"Contact"} selected={selected} setSelected={setSelected}>
-        <div className="flex flex-col xl:flex-row">
-          <FontAwesomeIcon icon={faEnvelope} className="xl:mt-1" />
-          <span className="pl-2 text-sm xl:text-lg">Contact</span>
-        </div>
-      </AnchorLink>
-      <div className="flex flex-col xl:flex-row">
-        <Tooltip title="Download My Resume">
-          <div className="flex justify-center">
-            <i className="fa-solid fa-file-arrow-down text-white hover:text-blue-200 xl:mt-1" onClick={() => onDownload()} />
-          </div>
-        </Tooltip>
-        <Tooltip title="View my Resume">
-          <span
-            className="text-white pl-0 xl:pl-2 text-sm xl:text-lg hover:cursor-pointer hover:text-blue-200"
-            onClick={() => setShowResume(true)}
-          >
-            My Resume
-          </span>
-        </Tooltip>
-      </div>
-      {false && <AnchorLink href={"#about"} label={"About"} selected={selected} setSelected={setSelected}>About</AnchorLink>}
-    </div>
-  </div>
-);
 
 const SubNavBar: React.FC<{ onDownload: () => void; setShowResume: (val: boolean) => void }> = ({ onDownload, setShowResume }) => (
   <div className="flex justify-center text-white fixed xl:bottom-0 pt-3 pb-3 z-[50] w-full mt-4 xl:mt-0">
@@ -160,7 +84,7 @@ const TechStack: React.FC = () => {
   );
 };
 
-const Landing: React.FC = () => {
+const Home: React.FC = () => {
   const [popupMsg, setPopupMsg] = useState<string>('');
   const [openPopup, setOpenPopup] = useState<boolean>(false);
   const [showResume, setShowResume] = useState<boolean>(false);
@@ -218,7 +142,7 @@ const Landing: React.FC = () => {
 
   return (
     <div className="relative bg-[#000] pt-4" id="top">
-      <NavBar selected={selected} setSelected={setSelected} setShowResume={setShowResume} onDownload={onDownload} />
+      <Navbar selected={selected} setSelected={setSelected} setShowResume={setShowResume} onDownload={onDownload} />
       {isAtTop && <SubNavBar onDownload={onDownload} setShowResume={setShowResume} />}
 
       <div className="h-screen">
@@ -284,15 +208,13 @@ const Landing: React.FC = () => {
         productListCentra={productListCentra}
       />
 
-      <div className="flex justify-center">
-        <div id="contact" className=""></div>
-        <Contact
-          setOpenPopup={setOpenPopup}
-          setPopupMsg={setPopupMsg}
-          setOpen={() => { }}
-        />
-      </div>
-
+      <Contact
+        id="contact"
+        setOpenPopup={setOpenPopup}
+        setPopupMsg={setPopupMsg}
+        setOpen={() => { }}
+      />
+     
       <Modal
         open={showResume}
         width={1000}
@@ -318,4 +240,4 @@ const Landing: React.FC = () => {
   );
 };
 
-export default Landing;
+export default Home;

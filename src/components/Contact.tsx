@@ -9,13 +9,14 @@ import { Input, Button } from "antd";
 const { TextArea } = Input;
 
 type ContactProps = {
+    id: string,
     setOpen: Function,
     setPopupMsg: Function,
     setOpenPopup: Function
 }
 
 function Contact(props: ContactProps) {
-    const { setOpen, setPopupMsg, setOpenPopup } = props;
+    const { id, setOpen, setPopupMsg, setOpenPopup } = props;
     const formRef = useRef<HTMLFormElement>(null);
 
     const [fromName, setFromName] = useState('');
@@ -88,7 +89,7 @@ function Contact(props: ContactProps) {
     }
 
     return (
-        <PageContainer title="Contact" fillScreen={true} className="w-full">
+      <PageContainer title="Contact" fillScreen={true} className="w-full" id={id}>
             <div className="">
                 {contactSubText}
             </div>

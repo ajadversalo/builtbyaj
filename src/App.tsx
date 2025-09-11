@@ -1,10 +1,10 @@
 import React from 'react';
-import Landing from './Pages/Landing';
+import Home from '@Pages/Home';
 
 const App: React.FC = () => {
   return (
     <div>
-      <Landing />
+      <Home />
     </div>
   );
 };
