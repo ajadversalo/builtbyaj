@@ -184,23 +184,14 @@ const Home: React.FC = () => {
                 <FontAwesomeIcon icon={faCircleChevronUp} size="2xl" className="fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer" />
               </a>
             }
-
-            {!showTechnicalSkills && false &&
-              <div className="mt-8 hover:cursor-pointer hover:underline text-[#FFDD44]" onClick={() => setShowTechnicalSkills(true)}>View My Techical Skills <i className="fa-solid fa-chevron-right"></i></div>
-            }
-            <Collapse in={showTechnicalSkills}>
-              <div className="">
-                <Skills />
-              </div>
-            </Collapse>
           </div>
         </div>
       </div>
-
-      <div className="flex justify-center">
-        <Skills />
-      </div>
-
+      
+    <Skills
+        id="skills"
+    />
+      
       <Projects
         id="projects"
         productList={productListGenXys}

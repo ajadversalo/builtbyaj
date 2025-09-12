@@ -62,9 +62,15 @@ const skills: Record<SkillCategory, Skill[]> = {
         { id: "openai", name: "OpenAI API", category: "Other Tools & Integration", image: { src: "https://seeklogo.com/images/O/openai-logo-8B9BFEDC26-seeklogo.com.png", alt: "OpenAI" } },
     ],
 };
-function Skills() {
+
+type SkillsProps = {
+    id: string    
+}
+function Skills(props: SkillsProps) {
+    const { id } = props;
+
     return (
-        <PageContainer title="Skills" className="w-full">
+        <PageContainer title="Skills" className="w-full" id={id}>
             <div className="flex flex-col gap-6">
                 {Object.entries(skills).map(([category, skillList]) => (
                     <div key={category} className="mb-6">
