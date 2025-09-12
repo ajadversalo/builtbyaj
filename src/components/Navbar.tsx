@@ -37,14 +37,12 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
     "
   >
     <div className="text-xl flex flex-row justify-between border-box w-full xl:w-[40%] pl-4 pr-4">
-      {false &&
-        <AnchorLink href={"#skills"} label={"Skills"} selected={selected} setSelected={setSelected}>
-          <div className="flex flex-col xl:flex-row">
-            <FontAwesomeIcon icon={faListCheck} className="xl:mt-1" />
-            <span className="pl-2 text-sm xl:text-lg">Skills</span>
-          </div>
-        </AnchorLink>
-      }
+      <AnchorLink href={"#skills"} label={"Skills"} selected={selected} setSelected={setSelected}>
+        <div className="flex flex-col xl:flex-row">
+          <FontAwesomeIcon icon={faListCheck} className="xl:mt-1" />
+          <span className="pl-2 text-sm xl:text-lg">Skills</span>
+        </div>
+      </AnchorLink>      
       <AnchorLink href={"#projects"} label={"Projects"} selected={selected} setSelected={setSelected}>
         <div className="flex flex-col xl:flex-row">
           <FontAwesomeIcon icon={faDiagramProject} className="xl:mt-1" />

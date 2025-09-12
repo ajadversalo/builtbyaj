@@ -16,10 +16,9 @@ import Collapse from '@mui/material/Collapse';
 
 import Contact from '../components/Contact';
 import Resume from '../components/Resume';
-import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 //import About from './Pages/About';
-import SkillsNew from '../components/Skills2';
+import Skills from '../components/Skills';
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 
@@ -199,7 +198,7 @@ const Home: React.FC = () => {
       </div>
 
       <div className="flex justify-center">
-        <SkillsNew />
+        <Skills />
       </div>
 
       <Projects
