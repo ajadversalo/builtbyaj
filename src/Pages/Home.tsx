@@ -4,15 +4,12 @@ import '../App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Marquee from "react-fast-marquee";
-import { motion } from "framer-motion";
 
 import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
 //import IconButton from '@mui/material/IconButton';
 //import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
-import Collapse from '@mui/material/Collapse';
 
 import Contact from '../components/Contact';
 import Resume from '../components/Resume';
@@ -88,8 +85,7 @@ const Home: React.FC = () => {
   const [openPopup, setOpenPopup] = useState<boolean>(false);
   const [showResume, setShowResume] = useState<boolean>(false);
   const [selected, setSelected] = useState<string | null>(null);
-  const [isAtTop, setIsAtTop] = useState<boolean>(true);
-  const [showTechnicalSkills, setShowTechnicalSkills] = useState<boolean>(false);
+  const [isAtTop, setIsAtTop] = useState<boolean>(true);  
   const [tooltip, setTooltip] = useState<{ show: boolean }>({
     show: false
   });
@@ -170,15 +166,7 @@ const Home: React.FC = () => {
               </section>
             </div>
 
-            <Collapse in={!showTechnicalSkills}>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-              >
-              </motion.div>
-            </Collapse>
+            
             {!isAtTop &&
               <a href={"#top"}>
                 <FontAwesomeIcon icon={faCircleChevronUp} size="2xl" className="fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer" />
