@@ -27,7 +27,8 @@ import { Modal } from "antd";
 import {
   //aboutContent,
   productListGenXys,
-  productListCentra
+  productListCentra,
+  productListPersonal
 } from '../../src/data/data';
 
 type TechStackItem = {
@@ -180,6 +181,7 @@ const Home: React.FC = () => {
         id="projects"
         productList={productListGenXys}
         productListCentra={productListCentra}
+        productListPersonal={productListPersonal}
       />
 
       <Contact

@@ -15,10 +15,11 @@ type ProjectsProps = {
     id: string
     productList: Array<ProductCardProps>
     productListCentra: Array<ProductCardProps>
+    productListPersonal: Array<ProductCardProps>
 }
 
 function Projects(props: ProjectsProps) {
-    const { id, productList, productListCentra } = props;
+    const { id, productList, productListCentra, productListPersonal } = props;
 
     const ProductCard = (props: ProductCardProps) => {
         return (
@@ -101,6 +102,35 @@ function Projects(props: ProjectsProps) {
             <div className="flex flex-col 2xl:flex-row mt-6">
                 <div className="w-100">
                     {productList.map((p: ProductCardProps, index: number) => {
+                        return (
+                            <ProductCard
+                                key={p.title}
+                                title={p.title}
+                                description={p.description}
+                                isCritical={p.isCritical}
+                                isLead={p.isLead}
+                                index={index}
+                            />)
+                    })}
+                </div>
+            </div>
+            <Divider className="bg-white mt-12" />
+            <div className="flex flex-col 2xl:flex-row">
+                <div className={"w-[20%]"}>
+                    <img src={`./genxys-logo-square.png`} alt='genxys-logo' style={{ width: '7rem', paddingTop: '1.5rem', paddingBottom: '0.5rem' }} />
+                </div>
+                <div className={"w-[100%] mt-6 2xl:pl-1"}>
+                    <div className="text-md text-[#FFDD44] font-semibold hover:underline">
+                        <a href="https://www.genxys.com" target="_blank" rel="noreferrer">Personal Projects</a>
+                    </div>
+                    <div className="text-sm mt-1">
+                        GenXys provides precision prescribing software that integrates pharmacogenetics and clinical data to help healthcare providers personalize medication choices, improving patient safety and reducing healthcare costs.
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col 2xl:flex-row mt-6">
+                <div className="w-100">
+                    {productListPersonal.map((p: ProductCardProps, index: number) => {
                         return (
                             <ProductCard
                                 key={p.title}
