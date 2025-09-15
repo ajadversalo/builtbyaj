@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
+import { skills } from "../data/data";
+
+import { Skill } from "../components/Skills";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
@@ -41,21 +44,13 @@ const SubNavBar: React.FC<{ onDownload: () => void; setShowResume: (val: boolean
   </div>
 );
 
-const techStackData: TechStackItem[] = [
-  { src: "./tech_logos/html5.svg", alt: "HTML5", desc: "HTML5: Markup language" },
-  { src: "./tech_logos/javascript.svg", alt: "JavaScript", desc: "JS: Programming language" },
-  { src: "./tech_logos/css.svg", alt: "CSS", desc: "CSS: Styling" },
-  { src: "./tech_logos/typescript.svg", alt: "TypeScript", desc: "Type safety" },
-  { src: "./tech_logos/redux.svg", alt: "Redux", desc: "Redux: State management" },
-  { src: "./tech_logos/tailwindcss.svg", alt: "TailwindCSS", desc: "Utility-first CSS" },
-  { src: "./tech_logos/mui.svg", alt: "MUI", desc: "Material UI" },
-  { src: "./tech_logos/antdesign.svg", alt: "Ant Design", desc: "Ant Design" },
-  { src: "./tech_logos/react.svg", alt: "React", desc: "React: UI library" },
-  { src: "./tech_logos/nextdotjs.svg", alt: "Next.js", desc: "Next.js: SSR/SSG" },
-  { src: "./tech_logos/nodedotjs.svg", alt: "Node.js", desc: "Node.js: Backend" },
-  { src: "./tech_logos/c_sharp.svg", alt: "C#", desc: "C#: OOP Language" },
-  { src: "./tech_logos/sql_server.svg", alt: "SQL Server", desc: "Database" },
-];
+const techStackData: TechStackItem[] = Object.values(skills)
+    .flat()
+    .map((skill: Skill): TechStackItem => ({
+        src: skill.image?.src ?? "",
+        alt: skill.image?.alt ?? skill.name,
+        desc: `${skill.name}${skill.category ? `: ${skill.category}` : ""}`,
+    }));
 
 const TechStack: React.FC = () => {
   return (
@@ -65,9 +60,10 @@ const TechStack: React.FC = () => {
     >
       {techStackData.map(({ src, alt, desc }) => (
         <div
-          key={alt}
-          className="mx-2"
-          style={{ minHeight: 50 }}
+              key={alt}
+              className="mx-2"
+              style={{ minHeight: 50 }}
+              title={desc}
         >
           <img
             src={src}
@@ -149,8 +145,7 @@ const Home: React.FC = () => {
                 <div
                   className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
                   onMouseEnter={e => handleMouseEnter()}
-                  onMouseLeave={handleMouseLeave}
-                  title="View My Skills" 
+                  onMouseLeave={handleMouseLeave}                  
                   onClick={() => window.location.hash = '#skills'}
                 >
                   <Marquee
