@@ -150,7 +150,8 @@ const Home: React.FC = () => {
                   className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
                   onMouseEnter={e => handleMouseEnter()}
                   onMouseLeave={handleMouseLeave}
-                  title="View My Skills"
+                  title="View My Skills" 
+                  onClick={() => window.location.hash = '#skills'}
                 >
                   <Marquee
                     gradient={true}

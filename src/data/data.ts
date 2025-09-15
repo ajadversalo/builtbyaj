@@ -1,3 +1,5 @@
+import { SkillCategory, Skill } from "../components/Skills";
+
 export const aboutContent: string[] = [
     'I am a passionate software developer based in beautiful Vancouver, British Columbia. I moved to Canada in 2016, and in 2019, I made a significant career transition into the world of software development. I thrive on the challenge of bringing ideas to life through code, and I take great pride in my ability to deliver high-quality work.',
     'I had the incredible opportunity to further enhance my skills as a full-stack software developer during my time at GenXys. As part of a dynamic team of four, we collaborated closely to create a comprehensive suite of applications that revolutionized the way healthcare professionals interact with patient data. I learned the value of effective teamwork, agile development methodologies, and delivering high-quality solutions.',
@@ -111,3 +113,47 @@ export const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // eslint-disabl
 export const serviceId = 'service_0cl4yjf';
 export const templateId = 'template_c2ne7jm';
 export const publicKey = 'ajonPi_KH7jk3zPCW';
+
+export const skills: Record<SkillCategory, Skill[]> = {
+    "UI / Front-End": [
+        { id: "html", name: "HTML", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", alt: "HTML" } },
+        { id: "css", name: "CSS", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", alt: "CSS" } },
+        { id: "js", name: "JavaScript", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", alt: "JavaScript" } },
+        { id: "ts", name: "TypeScript", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", alt: "TypeScript" } },
+        { id: "react", name: "ReactJS", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "ReactJS" } },
+        { id: "next", name: "NextJS", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", alt: "NextJS" } },
+        { id: "redux", name: "Redux", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg", alt: "Redux" } },
+        { id: "mui", name: "MaterialUI", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg", alt: "MaterialUI" } },
+        { id: "antd", name: "Ant Design", category: "UI / Front-End", image: { src: "./techstack/antdesign.svg", alt: "Ant Design" } },
+        { id: "tailwind", name: "Tailwind CSS", category: "UI / Front-End", image: { src: "./techstack/tailwindcss.svg", alt: "Tailwind CSS" } },
+        { id: "fa", name: "FontAwesome", category: "UI / Front-End", image: { src: "https://upload.wikimedia.org/wikipedia/commons/2/20/Font_Awesome_5_logo.svg", alt: "FontAwesome" } },
+    ],
+    "API & Back-End": [
+        { id: "csharp", name: "C#", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", alt: "C#" } },
+        { id: "dotnet", name: ".Net", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg", alt: ".Net" } },
+        { id: "ef", name: "Entity Framework", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/entityframeworkcore/entityframeworkcore-original.svg", alt: "Entity Framework" } },
+        { id: "node", name: "NodeJS", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", alt: "NodeJS" } },
+        { id: "supabase", name: "Supabase", category: "API & Back-End", image: { src: "https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png", alt: "Supabase" } },
+    ],
+    Database: [
+        { id: "sqlserver", name: "SQL Server", category: "Database", image: { src: "https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg", alt: "SQL Server" } },
+    ],
+    "DevOps & Cloud": [
+        { id: "azure-devops", name: "Azure DevOps", category: "DevOps & Cloud", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg", alt: "Azure DevOps" } },
+        { id: "aws", name: "AWS", category: "DevOps & Cloud", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", alt: "AWS" } },
+        { id: "git", name: "Git", category: "DevOps & Cloud", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", alt: "Git" } },
+        { id: "iis", name: "IIS", category: "DevOps & Cloud", image: { src: "https://upload.wikimedia.org/wikipedia/commons/2/27/Internet_Information_Services_logo.svg", alt: "IIS" } },
+        { id: "apache", name: "Apache", category: "DevOps & Cloud", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg", alt: "Apache" } },
+        { id: "netlify", name: "Netlify", category: "DevOps & Cloud", image: { src: "https://seeklogo.com/images/N/netlify-logo-758722CDF4-seeklogo.com.png", alt: "Netlify" } },
+    ],
+    "Testing & Automation": [
+        { id: "selenium", name: "Selenium", category: "Testing & Automation", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg", alt: "Selenium" } },
+        { id: "playwright", name: "Playwright", category: "Testing & Automation", image: { src: "https://playwright.dev/img/playwright-logo.svg", alt: "Playwright" } },
+    ],
+    "Other Tools & Integration": [
+        { id: "i18next", name: "i18next (localization)", category: "Other Tools & Integration", image: { src: null, alt: "i18next" } },
+        { id: "sendgrid", name: "SendGrid", category: "Other Tools & Integration", image: { src: null, alt: "SendGrid" } },
+        { id: "gmap", name: "Google Maps API", category: "Other Tools & Integration", image: { src: "https://seeklogo.com/images/G/google-maps-2020-icon-logo-4C72927A81-seeklogo.com.png", alt: "Google Maps API" } },
+        { id: "openai", name: "OpenAI API", category: "Other Tools & Integration", image: { src: "https://seeklogo.com/images/O/openai-logo-8B9BFEDC26-seeklogo.com.png", alt: "OpenAI" } },
+    ],
+};
