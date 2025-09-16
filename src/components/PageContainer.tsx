@@ -3,14 +3,16 @@ import React from 'react';
 import { Divider } from "antd";
 
 function PageContainer(props: any) {
-  const { id, title, className, bodyClassName, fillScreen } = props;
+  const { id, title, className, bodyClassName, fillScreen, hideDivider } = props;
 
   return (
     <div id={id} className={`text-white p-4 ${fillScreen ? "h-screen" : "lg:h-100"} lg:pt-16 ${className}`}>
       <div className="flex items-center justify-center">
         <div className="w-full xl:w-[70%] 2xl:w-[50%]">
           <h2 className={"text-2xl"}>{title}</h2>
-          <Divider className="bg-white mb-0" />
+            {!hideDivider &&
+                <Divider className="bg-white mb-0" />
+            }
         </div>
       </div>
       <div className={`flex lg:items-center justify-center h-100 lg:h-full ${bodyClassName}`}>
