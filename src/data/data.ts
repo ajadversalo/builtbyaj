@@ -1,4 +1,4 @@
-﻿import { SkillCategory, Skill } from "../components/Skills";
+import { SkillCategory, Skill } from "../components/Skills";
 
 export const aboutContent: string[] = [
     'I am a passionate software developer based in beautiful Vancouver, British Columbia. I moved to Canada in 2016, and in 2019, I made a significant career transition into the world of software development. I thrive on the challenge of bringing ideas to life through code, and I take great pride in my ability to deliver high-quality work.',
