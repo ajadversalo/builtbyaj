@@ -81,14 +81,7 @@ export const productListCentra = [
         isCritical: true,
         isLead: false,
         index: 3
-    },
-    {
-        title: 'Employee Services Portal',
-        description: 'This application is tailored for the window and door manufacturing process. This tool provides comprehensive, real-time insights into each stage of production, ensuring transparency and control from start to finish. Used by the manufacturing team, it captures and displays live production stats, enabling teams to monitor progress, optimize workflow, and address bottlenecks quickly. This solution empowers teams to maintain high standards of efficiency and quality throughout the manufacturing lifecycle.',
-        isCritical: false,
-        isLead: false,
-        index: 4
-    },
+    }
 ];
 
 export const productListPersonal = [
