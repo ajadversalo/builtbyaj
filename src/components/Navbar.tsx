@@ -19,7 +19,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     return (
         <a
             href={href}
-            className={`border-b-2 border-transparent hover:cursor-pointer hover:border-white ${selected === label ? "border-b-2 border-white" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
+            className={`border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "bg-white text-gray-700 rounded" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
             onClick={() => { setSelected(label); onClick?.() }}
         >
             {children}
@@ -57,7 +57,7 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
                     <span className="pl-2 text-sm xl:text-lg">Skills</span>
                 </div>
             </AnchorLink>
-            <AnchorLink href={"#projects"} label={"Projects"} selected={selected} setSelected={setSelected}>
+            <AnchorLink href={"#portfolio"} label={"Portfolio"} selected={selected} setSelected={setSelected}>
                 <div className="flex flex-col xl:flex-row">
                     <FontAwesomeIcon icon={faDiagramProject} className="xl:mt-1" />
                     <span className="pl-2 text-sm xl:text-lg">Portfolio</span>

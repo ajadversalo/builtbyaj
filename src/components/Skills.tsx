@@ -21,14 +21,15 @@ export type Skill = {
 };
 
 type SkillsProps = {
-    id: string    
+    id: string,
+    innerRef?: React.Ref<HTMLDivElement>;
 }
 function Skills(props: SkillsProps) {
-    const { id } = props;
+    const { id, innerRef } = props;
 
     return (
-        <PageContainer className="w-full" title="" id={id} hideDivider={true}>
-            <div className="flex flex-col gap-6">
+        <PageContainer className="w-full" title="" hideDivider={true}>
+            <div className="flex flex-col gap-6" id={id}  ref={innerRef}>
                 {Object.entries(skills).map(([category, skillList]) => (
                     <div key={category} className="mb-6">
                         <h2 className="text-xl font-bold mb-3">{category}</h2>

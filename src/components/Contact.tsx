@@ -12,11 +12,12 @@ type ContactProps = {
     id: string,
     setOpen: Function,
     setPopupMsg: Function,
-    setOpenPopup: Function
+    setOpenPopup: Function,
+    innerRef?: React.Ref<HTMLDivElement>
 }
 
 function Contact(props: ContactProps) {
-    const { id, setOpen, setPopupMsg, setOpenPopup } = props;
+    const { id, setOpen, setPopupMsg, setOpenPopup, innerRef } = props;
     const formRef = useRef<HTMLFormElement>(null);
 
     const [fromName, setFromName] = useState('');
@@ -89,8 +90,8 @@ function Contact(props: ContactProps) {
     }
 
     return (
-        <PageContainer fillScreen={true} className="w-full" title="" id={id} hideDivider={true}>
-            <div className="">
+        <PageContainer fillScreen={true} className="w-full" title="" hideDivider={true}>
+            <div className="" id={id} ref={innerRef}>
                 {contactSubText}
             </div>
             <div className="w-100 mt-16">
