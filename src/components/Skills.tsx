@@ -27,7 +27,7 @@ function Skills(props: SkillsProps) {
     const { id } = props;
 
     return (
-        <PageContainer title="Skills" className="w-full" id={id}>
+        <PageContainer className="w-full" title="" id={id} hideDivider={true}>
             <div className="flex flex-col gap-6">
                 {Object.entries(skills).map(([category, skillList]) => (
                     <div key={category} className="mb-6">
