@@ -231,14 +231,15 @@ const Home: React.FC = () => {
                 productListPersonal={productListPersonal}
             />
 
-            <Contact
-                id="contact"
-                innerRef={contactRef}
-                setOpenPopup={setOpenPopup}
-                setPopupMsg={setPopupMsg}
-                setOpen={() => { }}
-            />
-
+            {false &&
+                <Contact
+                    id="contact"
+                    innerRef={contactRef}
+                    setOpenPopup={setOpenPopup}
+                    setPopupMsg={setPopupMsg}
+                    setOpen={() => { }}
+                />
+            }
             <Modal
                 open={showResume}
                 width={1000}

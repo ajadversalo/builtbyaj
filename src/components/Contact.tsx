@@ -47,6 +47,8 @@ function Contact(props: ContactProps) {
         let popupMsgType = '';
         let popupMsg = '';
 
+        console.log(fromName, fromEmail, message)
+
         if (!fromName || !fromEmail || !message) {
             popupMsgType = 'error';
             popupMsg = 'Unable to send. Some fields are empty.';
@@ -97,11 +99,19 @@ function Contact(props: ContactProps) {
             <div className="w-100 mt-16">
                 <div className={`mt-2 flex flex-col lg:flex-row`}>
                     <div className="lg:w-[20%] mb-2 lg:mb-0">Your Name</div>
-                    <Input placeholder={""} />
+                    <Input
+                        name='from-name'
+                        placeholder={""}
+                        onChange={handleInputChange}
+                    />
                 </div>
                 <div className="mt-4 flex  flex-col lg:flex-row">
                     <div className="lg:w-[20%] mb-2 lg:mb-0">Your Email</div>
-                    <Input placeholder={""} />
+                    <Input
+                        name='from-email'
+                        placeholder={""}
+                        onChange={handleInputChange}
+                    />
                 </div>
                 <div className="mt-4 flex  flex-col lg:flex-row">
                     <div className={`lg:w-[20%] mb-2 lg:mb-0`}>Message</div>

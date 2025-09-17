@@ -63,23 +63,25 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
                     <span className="pl-2 text-sm xl:text-lg">Portfolio</span>
                 </div>
             </AnchorLink>
-            <AnchorLink href={"#contact"} label={"Contact"} selected={selected} setSelected={setSelected}>
-                <div className="flex flex-col xl:flex-row">
-                    <FontAwesomeIcon icon={faEnvelope} className="xl:mt-1" />
-                    <span className="pl-2 text-sm xl:text-lg">Contact</span>
-                </div>
-            </AnchorLink>
             {false &&
-                <div className="flex flex-col xl:flex-row">
+                <AnchorLink href={"#contact"} label={"Contact"} selected={selected} setSelected={setSelected}>
+                    <div className="flex flex-col xl:flex-row">
+                        <FontAwesomeIcon icon={faEnvelope} className="xl:mt-1" />
+                        <span className="pl-2 text-sm xl:text-lg">Contact</span>
+                    </div>
+                </AnchorLink>
+            }
+            {true &&
+                <div className="flex flex-col xl:flex-row hover:cursor-pointer hover:text-blue-200" onClick={() => onDownload()}>
                     <Tooltip title="Download My Resume">
                         <div className="flex justify-center">
-                            <i className="fa-solid fa-file-arrow-down text-white hover:text-blue-200 xl:mt-1" onClick={() => onDownload()} />
+                            <i className="fa-solid fa-file-arrow-down text-blue-300 xl:mt-1"  />
                         </div>
                     </Tooltip>
-                    <Tooltip title="View my Resume">
+                    <Tooltip title="Download My Resume">
                         <span
-                            className="text-white pl-0 xl:pl-2 text-sm xl:text-lg hover:cursor-pointer hover:text-blue-200"
-                            onClick={() => setShowResume(true)}
+                            className="text-blue-300 pl-0 xl:pl-2 text-sm xl:text-lg "
+                            //onClick={() => setShowResume(true)}
                         >
                             My Resume
                         </span>
