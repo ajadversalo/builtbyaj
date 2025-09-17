@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
               </div>
           </div>
           <div className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold" >
-              Full Stack Software Developer
+              I don't just code, I build solutions.
           </div>
       </div>                                                                                                               
     );

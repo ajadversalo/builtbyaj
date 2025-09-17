@@ -60,6 +60,20 @@ function Projects(props: ProjectsProps) {
         );
     }
 
+    const ProductCardPersonal = (props: ProductCardProps) => {
+        return (
+            <div className="pt-2 flex flex-col justify-between mt-1">
+                <a href="https://aijabber.ca" target="_blank" rel="noreferrer" className="w-100 text-indigo-100 font-semibold hover:underline">
+                    <span className="pr-1">{props.index + 1}.</span>
+                    {props.title}
+                </a>
+                <div className="w-100 text-sm mt-1 text-gray-300">
+                    {props.description}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <PageContainer title="" hideDivider={true}>
             <div id={id} ref={innerRef}>
@@ -153,23 +167,22 @@ function Projects(props: ProjectsProps) {
                 </div>
                 <Divider className="bg-white mt-12" />
                 <div className="flex flex-col 2xl:flex-row">
-                    <div className={"w-[20%]"}>
-                        <img src={`./genxys-logo-square.png`} alt='genxys-logo' style={{ width: '7rem', paddingTop: '1.5rem', paddingBottom: '0.5rem' }} />
-                    </div>
+                    {false &&
+                        <div className={"w-[20%]"}>
+                            <img src={`./genxys-logo-square.png`} alt='genxys-logo' style={{ width: '7rem', paddingTop: '1.5rem', paddingBottom: '0.5rem' }} />
+                        </div>
+                    }
                     <div className={"w-[100%] mt-6 2xl:pl-1"}>
-                        <div className="text-md text-[#FFDD44] font-semibold hover:underline">
-                            <a href="https://www.genxys.com" target="_blank" rel="noreferrer">Personal Projects</a>
-                        </div>
-                        <div className="text-sm mt-1">
-                            GenXys provides precision prescribing software that integrates pharmacogenetics and clinical data to help healthcare providers personalize medication choices, improving patient safety and reducing healthcare costs.
-                        </div>
+                        <div className="text-md text-[#FFDD44] font-semibold">
+                            <div>Personal Projects</div>
+                        </div>                       
                     </div>
                 </div>
                 <div className="flex flex-col 2xl:flex-row mt-6">
                     <div className="w-100">
                         {productListPersonal.map((p: ProductCardProps, index: number) => {
                             return (
-                                <ProductCard
+                                <ProductCardPersonal
                                     key={p.title}
                                     title={p.title}
                                     description={p.description}

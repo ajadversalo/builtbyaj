@@ -1,4 +1,4 @@
-import { SkillCategory, Skill } from "../components/Skills";
+﻿import { SkillCategory, Skill } from "../components/Skills";
 
 export const aboutContent: string[] = [
     'I am a passionate software developer based in beautiful Vancouver, British Columbia. I moved to Canada in 2016, and in 2019, I made a significant career transition into the world of software development. I thrive on the challenge of bringing ideas to life through code, and I take great pride in my ability to deliver high-quality work.',
@@ -93,8 +93,8 @@ export const productListCentra = [
 
 export const productListPersonal = [
     {
-        title: 'Scheduling Software for Cross-Departmental Workflow Management',
-        description: 'A calendar based scheduling software solution, designed to streamline operations across multiple departments, including manufacturing, installation, and shipping. This tool enables real-time tracking and scheduling of work orders, improving workflow visibility and coordination. The software integrates seamlessly with departmental needs, ensuring that each team stays informed and synchronized, ultimately reducing downtime and enhancing productivity.',
+        title: 'AiJabber.ca - Personal AI Assistant',
+        description: 'A personal ChatGPT-style web app for experimenting with multiple AI models (GPT-5, Gemini, etc.), featuring on-demand selection of endpoints and model versions through a unified chat interface.',
         isCritical: true,
         isLead: true,
         index: 1
