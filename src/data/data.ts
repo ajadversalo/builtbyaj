@@ -123,6 +123,7 @@ export const skills: Record<SkillCategory, Skill[]> = {
     "API & Back-End": [
         { id: "csharp", name: "C#", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", alt: "C#" } },
         { id: "dotnet", name: ".Net", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg", alt: ".Net" } },
+        { id: "dapper", name: "Dapper", category: "API & Back-End", image: { src: "./tech_logos/dapper.jpg", alt: "Dapper" } },
         { id: "ef", name: "Entity Framework", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/entityframeworkcore/entityframeworkcore-original.svg", alt: "Entity Framework" } },
         { id: "node", name: "NodeJS", category: "API & Back-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", alt: "NodeJS" } },
         { id: "supabase", name: "Supabase", category: "API & Back-End", image: { src: "./tech_logos/supabase.svg", alt: "Supabase" } },

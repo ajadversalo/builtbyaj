@@ -77,34 +77,35 @@ function Projects(props: ProjectsProps) {
     return (
         <PageContainer title="" hideDivider={true}>
             <div id={id} ref={innerRef}>
-                <div className="flex flex-row justify-between mb-8 mt-[-3rem]">
-                    <nav className="mx-auto mt-12 overflow-hidden font-sans w-full">
-                        <div className="flex">
-                            {menuItems.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="w-1/3 text-center cursor-pointer opacity-30 hover:opacity-60 transition-opacity duration-500"
-                                    onClick={() => setActiveIndex(index)}
-                                    style={{ opacity: activeIndex === index ? 1 : undefined }}
-                                >
-                                    <div className="text-2xl border-2 border-gray-800 rounded-full h-12 w-12 mx-auto flex items-center justify-center">
-                                        {item.icon}
+                {false &&
+                    <div className="flex flex-row justify-between mb-8 mt-[-3rem]">
+                        <nav className="mx-auto mt-12 overflow-hidden font-sans w-full">
+                            <div className="flex">
+                                {menuItems.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="w-1/3 text-center cursor-pointer opacity-30 hover:opacity-60 transition-opacity duration-500"
+                                        onClick={() => setActiveIndex(index)}
+                                        style={{ opacity: activeIndex === index ? 1 : undefined }}
+                                    >
+                                        <div className="text-2xl border-2 border-gray-800 rounded-full h-12 w-12 mx-auto flex items-center justify-center">
+                                            {item.icon}
+                                        </div>
+                                        <span className="block py-2">{item.label}</span>
                                     </div>
-                                    <span className="block py-2">{item.label}</span>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
 
-                        {/* Slider bar */}
-                        <div className="w-full h-1 bg-gray-800 rounded mt-2 relative">
-                            <div
-                                className="h-1 bg-gray-300 rounded transition-all duration-500"
-                                style={{ width: "33.3%", marginLeft: `${activeIndex * 33}%` }}
-                            />
-                        </div>
-                    </nav>
-                </div>
-
+                            {/* Slider bar */}
+                            <div className="w-full h-1 bg-gray-800 rounded mt-2 relative">
+                                <div
+                                    className="h-1 bg-gray-300 rounded transition-all duration-500"
+                                    style={{ width: "33.3%", marginLeft: `${activeIndex * 33}%` }}
+                                />
+                            </div>
+                        </nav>
+                    </div>
+                }
                 <div className="flex flex-col 2xl:flex-row" >
                     <div className={"w-[20%]"}>
                         <img
