@@ -19,7 +19,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     return (
         <a
             href={href}
-            className={`border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "bg-white text-gray-700 rounded" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
+            className={`border-2 border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "border-white rounded" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
             onClick={() => { setSelected(label); onClick?.() }}
         >
             {children}
