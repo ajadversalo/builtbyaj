@@ -19,7 +19,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     return (
         <a
             href={href}
-            className={`border-2 border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "border-white rounded" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
+            className={`border-2 border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "border-gray-400 border-[1px]" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
             onClick={() => { setSelected(label); onClick?.() }}
         >
             {children}
@@ -36,7 +36,7 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
       xl:rounded-b-2xl
     "
     >
-        <div className="text-xl flex flex-row justify-between border-box w-full xl:w-[50%] pl-4 pr-4 bg-white/10 backdrop-blur-md p-2 rounded ml-4 mr-4">
+        <div className="text-xl flex flex-row justify-between border-box w-full xl:w-[50%] pl-4 pr-4 bg-white/10 backdrop-blur-md p-2 rounded ml-4 mr-4 relative">
             {false &&
                 <img
                     src="./aj_logo_tight.png"
@@ -89,7 +89,22 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
                 </div>
             }
             {false && <AnchorLink href={"#about"} label={"About"} selected={selected} setSelected={setSelected}>About</AnchorLink>}
-        </div>
+
+            <div className="text-xl tracking-tight font-bold flex flex-col justify-between mr-2 rounded-sm absolute top-16 -right-3 h-[4rem] p-1 pl-4" >
+                <a
+                    href="https://www.linkedin.com/in/ajadversalo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                >
+                    <i className="fa-brands fa-linkedin hover:cursor-pointer hover:text-blue-700"></i>
+                </a>
+                
+                <a href="https://github.com/ajadversalo" target="_blank" rel="noopener noreferrer">
+                    <i className="fa-brands fa-github text-white hover:cursor-pointer hover:text-yellow-200"></i>
+                </a>
+            </div>
+        </div>         
     </div>
 );
 

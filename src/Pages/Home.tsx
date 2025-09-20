@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
 import { skills } from "../data/data";
 
@@ -63,13 +63,13 @@ const TechStack: React.FC = () => {
                 <div
                     key={alt}
                     className="mx-2"
-                    style={{ minHeight: 50 }}
+                    style={{ minHeight: 40 }}
                     title={desc}
                 >
                     <img
                         src={src}
                         alt={alt}
-                        className="h-[30px] sm:h-[40px] md:h-[50px] object-contain transition-transform duration-200 hover:scale-110"
+                        className="h-[20px] sm:h-[30px] md:h-[40px] object-contain transition-transform duration-200 hover:scale-110"
                     />
                 </div>
             ))}
@@ -151,7 +151,7 @@ const Home: React.FC = () => {
                     const id = visibleEntry.target.getAttribute("id");
                     if (id) {
                         setSelected(id);
-                        window.location.hash = '#' + id;
+                        window.history.replaceState(null, "", "#" + id);
                     }
                 }
             },
@@ -210,8 +210,8 @@ const Home: React.FC = () => {
                         </div>
 
                         {!isAtTop &&
-                            <a href={"#top"}>
-                                <FontAwesomeIcon icon={faCircleChevronUp} size="2xl" className="fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer" />
+                            <a href={"#top"}>                                
+                                <i title="Back to top" className="fa-solid fa-house text-2xl fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer"></i>
                             </a>
                         }
                     </div>

@@ -39,10 +39,12 @@ const Hero: React.FC = () => {
               >
                   {`Adversalo`}
               </div>
-          </div>
-          <div className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold" >
-              I don't just code, I build solutions.
-          </div>
+            </div>
+          <div className="flex flex-row justify-between">
+              <div className="mt-2 text-[#ECEFF1] text-xl tracking-tight font-bold" >
+                  I don't just code, I build solutions.
+            </div>           
+            </div>
       </div>                                                                                                               
     );
 };
