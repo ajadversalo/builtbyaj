@@ -181,101 +181,102 @@ const Home: React.FC = () => {
             <Navbar selected={selected} setSelected={setSelected} setShowResume={setShowResume} onDownload={onDownload} />
             {true && <SubNavBar onDownload={onDownload} setShowResume={setShowResume} />}
             <div className="flex justify-center">
-                
-                    <div className="h-screen flex flex-col-reverse justify-between md:flex-col md:justify-around md:mt-0 mt-4 pl-2 pr-2">
-                        <div className="h-0"></div>
-                        <div className={"text-white p-2 flex flex-col"}>
-                            <div className={"text-5xl sm:text-6xl flex flex-row justify-between mt-[-6rem]"}>
-                                <section className="bg-black text-left">
-                                    <Hero />
-                                    <div
-                                        className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
-                                        onMouseEnter={e => handleMouseEnter()}
-                                        onMouseLeave={handleMouseLeave}
-                                        onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
-                                    >
-                                        <Marquee
-                                            gradient={true}
-                                            gradientColor="#000"
-                                            speed={20}
-                                            className="overflow-y-hidden hover:cursor-pointer"
-                                            play={!tooltip.show}
-                                        >
-                                            <TechStack />
-                                            <TechStack />
-                                        </Marquee>
-                                    </div>
-                                </section>
-                            </div>
-                            
-                            {!isAtTop && false &&
-                                <a href={"#top"}>
-                                    <i title="Back to top" className="fa-solid fa-house text-2xl fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer"></i>
-                                </a>
-                            }
-                        </div>
-                        <div className="text-xl font-bold flex flex-col justify-center rounded-sm">
-                            <div className="flex flex-row justify-between">
-                                <div className="pr-4 opacity-50">
-                                    <div className="text-white text-xs w-full text-center pb-1 border-b">
-                                        Launched
-                                    </div>
-                                    <div className="flex flex-row justify-center pt-[3px]">
-                                        <a
-                                            href="https://www.linkedin.com/in/ajadversalo"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-block"
-                                        >
-                                            <i
-                                                title="Visit my LinkedIn profile"
-                                                className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100 text-white"
-                                            ></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="w-[10rem] opacity-50">
-                                    <div className="text-white text-xs w-full text-center pb-1 border-b">
-                                        Connect
-                                    </div>
-                                    <div className="flex flex-row justify-between pt-[3px]">
-                                        <a
-                                            href="https://www.linkedin.com/in/ajadversalo"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-block"
-                                        >
-                                            <i
-                                                title="Visit my LinkedIn profile"
-                                                className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100 text-white"
-                                            ></i>
-                                        </a>
 
-                                        <a
-                                            href="https://github.com/ajadversalo"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <i
-                                                title="View my Github"
-                                                className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100"
-                                            ></i>
-                                        </a>
-                                        <div>
-                                            <i
-                                                title="Download my resume"
-                                                className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white"
-                                                onClick={() => onDownload()}
-                                            />
-                                        </div>
+                <div className="h-screen flex flex-col-reverse justify-between md:flex-col md:justify-around md:mt-0 mt-4 pl-2 pr-2">
+                    <div className="h-0"></div>
+                    <div className={"text-white p-2 flex flex-col"}>
+                        <div className={"text-5xl sm:text-6xl flex flex-row justify-between mt-[-6rem]"}>
+                            <section className="bg-black text-left">
+                                <Hero />
+                                <div
+                                    className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
+                                    onMouseEnter={e => handleMouseEnter()}
+                                    onMouseLeave={handleMouseLeave}
+                                    onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
+                                >
+                                    <Marquee
+                                        gradient={true}
+                                        gradientColor="#000"
+                                        speed={20}
+                                        className="overflow-y-hidden hover:cursor-pointer"
+                                        play={!tooltip.show}
+                                    >
+                                        <TechStack />
+                                        <TechStack />
+                                    </Marquee>
+                                </div>
+                            </section>
+                        </div>
+
+                        {!isAtTop && false &&
+                            <a href={"#top"}>
+                                <i title="Back to top" className="fa-solid fa-house text-2xl fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer"></i>
+                            </a>
+                        }
+                    </div>
+                    <div className="text-xl font-bold flex flex-col justify-center rounded-sm">
+                        <div className="flex flex-row justify-between">
+                            <div className="pr-4">
+                                <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
+                                    Launched
+                                </div>
+                                <div className="flex flex-row justify-center pt-[3px]">
+                                    <a
+                                        href="https://aijabber.ca"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            src="./artificial-intelligence.png"
+                                            width="45px"
+                                            alt="AI"
+                                            className="hover:cursor-pointer opacity-50 hover:opacity-100"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="w-[10rem] opacity-50">
+                                <div className="text-white text-xs w-full text-center pb-1 border-b">
+                                    Connect
+                                </div>
+                                <div className="flex flex-row justify-between pt-[3px]">
+                                    <a
+                                        href="https://www.linkedin.com/in/ajadversalo"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-block"
+                                    >
+                                        <i
+                                            title="Visit my LinkedIn profile"
+                                            className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100 text-white text-4xl"
+                                        ></i>
+                                    </a>
+
+                                    <a
+                                        href="https://github.com/ajadversalo"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <i
+                                            title="View my Github"
+                                            className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100 text-4xl"
+                                        ></i>
+                                    </a>
+                                    <div>
+                                        <i
+                                            title="Download my resume"
+                                            className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white text-4xl"
+                                            onClick={() => onDownload()}
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    
-           
+                </div>
+
+
+
             </div>
             <Skills
                 id="skills"
