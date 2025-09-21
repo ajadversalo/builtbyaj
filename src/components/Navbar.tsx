@@ -3,7 +3,6 @@ import '../App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faListCheck, faDiagramProject, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { Tooltip } from "antd";
 
 type AnchorLinkProps = {
     href: string;
@@ -16,16 +15,30 @@ type AnchorLinkProps = {
 
 const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     const { href, label, selected, setSelected, onClick, children } = props;
+
+    const handleClick = (e: React.MouseEvent) => {
+        e.preventDefault(); // Prevent default anchor behavior
+
+        setSelected(label); // Update selected state
+        onClick?.(); // Call any external onClick handler
+
+        // Manually scroll to the target section
+        const targetElement = document.getElementById(href.substring(1)); // Strip the '#' from the href
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <a
             href={href}
             className={`border-2 border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "border-gray-400 border-[1px]" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
-            onClick={() => { setSelected(label); onClick?.() }}
+            onClick={handleClick}
         >
             {children}
         </a>
     );
-};
+}
 
 const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => void; setShowResume: (val: boolean) => void; onDownload: () => void; }> = ({ selected, setSelected, setShowResume, onDownload }) => (
     <div

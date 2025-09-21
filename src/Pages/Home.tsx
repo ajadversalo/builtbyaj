@@ -1,11 +1,9 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
 import { skills } from "../data/data";
 
 import { Skill } from "../components/Skills";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Marquee from "react-fast-marquee";
 
 import MuiAlert from '@mui/material/Alert';
@@ -193,7 +191,7 @@ const Home: React.FC = () => {
                                     className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
                                     onMouseEnter={e => handleMouseEnter()}
                                     onMouseLeave={handleMouseLeave}
-                                    onClick={() => window.location.hash = '#skills'}
+                                    onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
                                 >
                                     <Marquee
                                         gradient={true}
@@ -209,7 +207,7 @@ const Home: React.FC = () => {
                             </section>
                         </div>
 
-                        {!isAtTop &&
+                        {!isAtTop && false &&
                             <a href={"#top"}>                                
                                 <i title="Back to top" className="fa-solid fa-house text-2xl fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer"></i>
                             </a>
