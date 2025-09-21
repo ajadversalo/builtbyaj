@@ -173,6 +173,24 @@ const Home: React.FC = () => {
         };
     }, []);
 
+    type SubLinksProps = {
+        title: string;
+        children?: React.ReactNode;
+    };
+
+    const SubLinks: React.FC<SubLinksProps> = ({ title, children }) => {
+        return (
+            <div className="w-[5rem]">
+                <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
+                    {title}
+                </div>
+                <div className="flex flex-row justify-center pt-[3px]">
+                    {children}
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="relative bg-[#000]" id="top">
             <Navbar selected={selected} setSelected={setSelected} setShowResume={setShowResume} onDownload={onDownload} />
@@ -213,44 +231,29 @@ const Home: React.FC = () => {
                     </div>
                     <div className="text-xl font-bold flex flex-col justify-center rounded-sm">
                         <div className="flex flex-row-reverse justify-between">
-                            <div className="pr-4">
-                                <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
-                                    Launched
-                                </div>
-                                <div className="flex flex-row justify-center pt-[3px]" title="Visit AI Jabber Chatbot">
-                                    <a
-                                        href="https://aijabber.ca"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <img
-                                            src="./ai-chipset.svg"
-                                            width="35px"
-                                            alt="AI"
-                                            className="hover:cursor-pointer opacity-50 hover:opacity-100"
-                                        />
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="w-[5rem]">
-                                <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
-                                    My Resume
-                                </div>
-                                <div className="flex flex-row justify-center pt-[3px]">
-                                    <div>
-                                        <i
-                                            title="Download my resume"
-                                            className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white text-2xl"
-                                            onClick={() => onDownload()}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="w-[5rem]">
-                                <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
-                                    Connect
-                                </div>
-                                <div className="flex flex-row justify-between pt-[3px]">
+                            <SubLinks title="Launched">
+                                <a
+                                    href="https://aijabber.ca"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="./ai-chipset.svg"
+                                        width="35px"
+                                        alt="AI"
+                                        className="hover:cursor-pointer opacity-50 hover:opacity-100"
+                                    />
+                                </a>
+                            </SubLinks>
+                            <SubLinks title="My Resume">
+                                <i
+                                    title="Download my resume"
+                                    className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white text-2xl"
+                                    onClick={() => onDownload()}
+                                />
+                            </SubLinks>
+                            <SubLinks title="Connect">
+                                <div className="w-[5rem] flex flex-row justify-between">
                                     <a
                                         href="https://www.linkedin.com/in/ajadversalo"
                                         target="_blank"
@@ -274,7 +277,7 @@ const Home: React.FC = () => {
                                         ></i>
                                     </a>
                                 </div>
-                            </div>
+                            </SubLinks>
                         </div>
                     </div>
                 </div>

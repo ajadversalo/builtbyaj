@@ -148,5 +148,6 @@ export const skills: Record<SkillCategory, Skill[]> = {
         { id: "sendgrid", name: "SendGrid", category: "Other Tools & Integration", image: { src: "./tech_logos/sendgrid.svg", alt: "SendGrid" } },
         { id: "gmap", name: "Google Maps API", category: "Other Tools & Integration", image: { src: "./tech_logos/google-maps.svg", alt: "Google Maps API" } },
         { id: "openai", name: "OpenAI API", category: "Other Tools & Integration", image: { src: "./tech_logos/openai.svg", alt: "OpenAI" } },
+        { id: "jira", name: "Jira", category: "Other Tools & Integration", image: { src: "./tech_logos/jira.svg", alt: "Jira" } },
     ],
 };
