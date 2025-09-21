@@ -71,38 +71,22 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
                     </div>
                 </AnchorLink>
             }
-            {true &&
-                <div className="flex flex-col xl:flex-row hover:cursor-pointer hover:text-blue-200" onClick={() => onDownload()}>
-                    <Tooltip title="Download My Resume">
-                        <div className="flex justify-center">
-                            <i className="fa-solid fa-file-arrow-down text-blue-300 xl:mt-1"  />
-                        </div>
-                    </Tooltip>
-                    <Tooltip title="Download My Resume">
-                        <span
-                            className="text-blue-300 pl-0 xl:pl-2 text-sm xl:text-lg "
-                            //onClick={() => setShowResume(true)}
-                        >
-                            My Resume
-                        </span>
-                    </Tooltip>
-                </div>
-            }
             {false && <AnchorLink href={"#about"} label={"About"} selected={selected} setSelected={setSelected}>About</AnchorLink>}
 
-            <div className="text-xl tracking-tight font-bold flex flex-col justify-between mr-2 rounded-sm absolute top-16 -right-3 h-[4rem] p-1 pl-4" >
+            <div title="Visit my LinkedIn profile" className="text-xl tracking-tight font-bold flex flex-col justify-between mr-2 rounded-sm absolute top-16 -right-3 h-[7rem] p-1 ml-4" >
                 <a
                     href="https://www.linkedin.com/in/ajadversalo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block"
                 >
-                    <i className="fa-brands fa-linkedin hover:cursor-pointer hover:text-blue-700"></i>
+                    <i className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100"></i>
                 </a>
                 
                 <a href="https://github.com/ajadversalo" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-github text-white hover:cursor-pointer hover:text-yellow-200"></i>
-                </a>
+                    <i title="View my Github" className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100"></i>
+                </a>                                                            
+                <i title="Download my resume" className="fa-solid fa-file-arrow-down hover:opacity-100 ml-[2px] mt-[5px] opacity-50 hover:cursor-pointer" onClick={() => onDownload()} />                                                            
             </div>
         </div>         
     </div>
