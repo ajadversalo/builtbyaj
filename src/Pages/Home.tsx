@@ -36,7 +36,7 @@ type TechStackItem = {
 };
 
 const SubNavBar: React.FC<{ onDownload: () => void; setShowResume: (val: boolean) => void }> = ({ onDownload, setShowResume }) => (
-    <div className="flex justify-center text-white fixed xl:bottom-0 pt-3 pb-3 z-[50] w-full mt-4 xl:mt-0">
+    <div className="flex justify-center text-white fixed xl:bottom-0 z-[50] w-full xl:mt-0">
         <div className="text-lg flex flex-row justify-between border-box w-full xl:w-[50%] pl-4 pr-4">
 
         </div>
@@ -177,45 +177,106 @@ const Home: React.FC = () => {
     }, []);
 
     return (
-        <div className="relative bg-[#000] pt-4" id="top">
+        <div className="relative bg-[#000]" id="top">
             <Navbar selected={selected} setSelected={setSelected} setShowResume={setShowResume} onDownload={onDownload} />
-            {isAtTop && <SubNavBar onDownload={onDownload} setShowResume={setShowResume} />}
-
-            <div className="h-screen">
-                <div className="h-full flex items-center justify-center pl-2 pr-2 mt-[-1rem]">
-                    <div className={"text-white p-2 mt-[-3rem] h-[25rem]"}>
-                        <div className={"text-5xl sm:text-6xl"}>
-                            <section className="bg-black text-left">
-                                <Hero />
-                                <div
-                                    className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
-                                    onMouseEnter={e => handleMouseEnter()}
-                                    onMouseLeave={handleMouseLeave}
-                                    onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
-                                >
-                                    <Marquee
-                                        gradient={true}
-                                        gradientColor="#000"
-                                        speed={20}
-                                        className="overflow-y-hidden hover:cursor-pointer"
-                                        play={!tooltip.show}
+            {true && <SubNavBar onDownload={onDownload} setShowResume={setShowResume} />}
+            <div className="flex justify-center">
+                
+                    <div className="h-screen flex flex-col justify-around pl-2 pr-2">
+                        <div className="h-0"></div>
+                        <div className={"text-white p-2 flex flex-col"}>
+                            <div className={"text-5xl sm:text-6xl flex flex-row justify-between mt-[-6rem]"}>
+                                <section className="bg-black text-left">
+                                    <Hero />
+                                    <div
+                                        className="mx-auto mt-12 overflow-y-hidden max-w-[50rem] w-[20rem] sm:w-[30rem] md:w-[40rem] lg:w-[50rem]"
+                                        onMouseEnter={e => handleMouseEnter()}
+                                        onMouseLeave={handleMouseLeave}
+                                        onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
                                     >
-                                        <TechStack />
-                                        <TechStack />
-                                    </Marquee>
-                                </div>
-                            </section>
+                                        <Marquee
+                                            gradient={true}
+                                            gradientColor="#000"
+                                            speed={20}
+                                            className="overflow-y-hidden hover:cursor-pointer"
+                                            play={!tooltip.show}
+                                        >
+                                            <TechStack />
+                                            <TechStack />
+                                        </Marquee>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                            {!isAtTop && false &&
+                                <a href={"#top"}>
+                                    <i title="Back to top" className="fa-solid fa-house text-2xl fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer"></i>
+                                </a>
+                            }
                         </div>
+                        <div className="text-xl font-bold flex flex-col justify-center rounded-sm">
+                            <div className="flex flex-row justify-between">
+                                <div className="pr-4 opacity-50">
+                                    <div className="text-white text-xs w-full text-center pb-1 border-b">
+                                        Launched
+                                    </div>
+                                    <div className="flex flex-row justify-center pt-[3px]">
+                                        <a
+                                            href="https://www.linkedin.com/in/ajadversalo"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-block"
+                                        >
+                                            <i
+                                                title="Visit my LinkedIn profile"
+                                                className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100 text-white"
+                                            ></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="w-[10rem] opacity-50">
+                                    <div className="text-white text-xs w-full text-center pb-1 border-b">
+                                        Connect
+                                    </div>
+                                    <div className="flex flex-row justify-between pt-[3px]">
+                                        <a
+                                            href="https://www.linkedin.com/in/ajadversalo"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-block"
+                                        >
+                                            <i
+                                                title="Visit my LinkedIn profile"
+                                                className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100 text-white"
+                                            ></i>
+                                        </a>
 
-                        {!isAtTop && false &&
-                            <a href={"#top"}>                                
-                                <i title="Back to top" className="fa-solid fa-house text-2xl fixed bottom-[90px] right-5 rounded-full h-[3rem] w-[3rem] opacity-30 hover:cursor-pointer"></i>
-                            </a>
-                        }
+                                        <a
+                                            href="https://github.com/ajadversalo"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <i
+                                                title="View my Github"
+                                                className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100"
+                                            ></i>
+                                        </a>
+                                        <div>
+                                            <i
+                                                title="Download my resume"
+                                                className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white"
+                                                onClick={() => onDownload()}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    
+                    
+           
             </div>
-
             <Skills
                 id="skills"
                 innerRef={skillsRef}

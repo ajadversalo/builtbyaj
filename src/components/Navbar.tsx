@@ -85,22 +85,23 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
                 </AnchorLink>
             }
             {false && <AnchorLink href={"#about"} label={"About"} selected={selected} setSelected={setSelected}>About</AnchorLink>}
+            {false &&
+                <div className="text-xl tracking-tight font-bold flex flex-col justify-between mr-2 rounded-sm absolute top-16 -right-3 h-[7rem] p-1 ml-4" >
+                    <a
+                        href="https://www.linkedin.com/in/ajadversalo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                    >
+                        <i title="Visit my LinkedIn profile" className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100"></i>
+                    </a>
 
-            <div title="Visit my LinkedIn profile" className="text-xl tracking-tight font-bold flex flex-col justify-between mr-2 rounded-sm absolute top-16 -right-3 h-[7rem] p-1 ml-4" >
-                <a
-                    href="https://www.linkedin.com/in/ajadversalo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block"
-                >
-                    <i className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100"></i>
-                </a>
-                
-                <a href="https://github.com/ajadversalo" target="_blank" rel="noopener noreferrer">
-                    <i title="View my Github" className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100"></i>
-                </a>                                                            
-                <i title="Download my resume" className="fa-solid fa-file-arrow-down hover:opacity-100 ml-[2px] mt-[5px] opacity-50 hover:cursor-pointer" onClick={() => onDownload()} />                                                            
-            </div>
+                    <a href="https://github.com/ajadversalo" target="_blank" rel="noopener noreferrer">
+                        <i title="View my Github" className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100"></i>
+                    </a>
+                    <i title="Download my resume" className="fa-solid fa-file-arrow-down hover:opacity-100 ml-[2px] mt-[5px] opacity-50 hover:cursor-pointer" onClick={() => onDownload()} />
+                </div>
+            }
         </div>         
     </div>
 );
