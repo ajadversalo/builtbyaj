@@ -227,7 +227,7 @@ const Home: React.FC = () => {
                                             src="./ai-chipset.svg"
                                             width="35px"
                                             alt="AI"
-                                            className="hover:cursor-pointer opacity-80 hover:opacity-100"
+                                            className="hover:cursor-pointer opacity-50 hover:opacity-100"
                                         />
                                     </a>
                                 </div>
