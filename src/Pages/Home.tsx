@@ -9,9 +9,6 @@ import Marquee from "react-fast-marquee";
 import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
-//import IconButton from '@mui/material/IconButton';
-//import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
 import Contact from '../components/Contact';
 import Resume from '../components/Resume';
 import Projects from '../components/Projects';
@@ -90,7 +87,7 @@ const Home: React.FC = () => {
     const contactRef = useRef(null);
 
     useEffect(() => {
-        document.title = 'Adversalo';
+        document.title = 'AJ Adversalo - Full Stack Dev';
     }, []);
 
     useEffect(() => {
@@ -215,7 +212,7 @@ const Home: React.FC = () => {
                         }
                     </div>
                     <div className="text-xl font-bold flex flex-col justify-center rounded-sm">
-                        <div className="flex flex-row justify-between">
+                        <div className="flex flex-row-reverse justify-between">
                             <div className="pr-4">
                                 <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
                                     Launched

@@ -32,7 +32,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     return (
         <a
             href={href}
-            className={`border-2 border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "border-gray-400 border-[1px]" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
+            className={`border-2 border-transparent hover:cursor-pointer hover:border-white text-white ${selected === label?.toLowerCase() ? "border-white border-[1px]" : ""} pl-2 pr-2 transition transform duration-500 ease-in-out flex items-center`}
             onClick={handleClick}
         >
             {children}
@@ -64,16 +64,19 @@ const Navbar: React.FC<{ selected: string | null; setSelected: (val: string) => 
                   "
                 />
             }
+            <AnchorLink href={"#top"} label={"AJ"} selected={selected} setSelected={setSelected}>
+                <div className="flex flex-col xl:flex-row">  
+                    <span className="text-sm xl:text-lg">AJ</span>
+                </div>
+            </AnchorLink>
             <AnchorLink href={"#skills"} label={"Skills"} selected={selected} setSelected={setSelected}>
-                <div className="flex flex-col xl:flex-row">
-                    <FontAwesomeIcon icon={faListCheck} className="xl:mt-1" />
-                    <span className="pl-2 text-sm xl:text-lg">Skills</span>
+                <div className="flex flex-col xl:flex-row">                    
+                    <span className="text-sm xl:text-lg">Skills</span>
                 </div>
             </AnchorLink>
             <AnchorLink href={"#portfolio"} label={"Portfolio"} selected={selected} setSelected={setSelected}>
-                <div className="flex flex-col xl:flex-row">
-                    <FontAwesomeIcon icon={faDiagramProject} className="xl:mt-1" />
-                    <span className="pl-2 text-sm xl:text-lg">Portfolio</span>
+                <div className="flex flex-col xl:flex-row">                    
+                    <span className="text-sm xl:text-lg">Portfolio</span>
                 </div>
             </AnchorLink>
             {false &&
