@@ -217,23 +217,37 @@ const Home: React.FC = () => {
                                 <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
                                     Launched
                                 </div>
-                                <div className="flex flex-row justify-center pt-[3px]">
+                                <div className="flex flex-row justify-center pt-[3px]" title="Visit AI Jabber Chatbot">
                                     <a
                                         href="https://aijabber.ca"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         <img
-                                            src="./artificial-intelligence.png"
+                                            src="./ai-chipset.svg"
                                             width="35px"
                                             alt="AI"
-                                            className="hover:cursor-pointer opacity-50 hover:opacity-100"
+                                            className="hover:cursor-pointer opacity-80 hover:opacity-100"
                                         />
                                     </a>
                                 </div>
                             </div>
-                            <div className="w-[10rem] opacity-50">
-                                <div className="text-white text-xs w-full text-center pb-1 border-b">
+                            <div className="w-[5rem]">
+                                <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
+                                    My Resume
+                                </div>
+                                <div className="flex flex-row justify-center pt-[3px]">
+                                    <div>
+                                        <i
+                                            title="Download my resume"
+                                            className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white text-2xl"
+                                            onClick={() => onDownload()}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-[5rem]">
+                                <div className="text-white text-xs w-full text-center pb-1 border-b opacity-50">
                                     Connect
                                 </div>
                                 <div className="flex flex-row justify-between pt-[3px]">
@@ -259,13 +273,6 @@ const Home: React.FC = () => {
                                             className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100 text-2xl"
                                         ></i>
                                     </a>
-                                    <div>
-                                        <i
-                                            title="Download my resume"
-                                            className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white text-2xl"
-                                            onClick={() => onDownload()}
-                                        />
-                                    </div>
                                 </div>
                             </div>
                         </div>
