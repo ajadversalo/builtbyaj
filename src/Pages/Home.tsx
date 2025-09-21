@@ -182,7 +182,7 @@ const Home: React.FC = () => {
             {true && <SubNavBar onDownload={onDownload} setShowResume={setShowResume} />}
             <div className="flex justify-center">
                 
-                    <div className="h-screen flex flex-col justify-around pl-2 pr-2">
+                    <div className="h-screen flex flex-col-reverse justify-between md:flex-col md:justify-around md:mt-0 mt-4 pl-2 pr-2">
                         <div className="h-0"></div>
                         <div className={"text-white p-2 flex flex-col"}>
                             <div className={"text-5xl sm:text-6xl flex flex-row justify-between mt-[-6rem]"}>
