@@ -248,7 +248,7 @@ const Home: React.FC = () => {
                                     >
                                         <i
                                             title="Visit my LinkedIn profile"
-                                            className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100 text-white text-4xl"
+                                            className="fa-brands fa-linkedin hover:cursor-pointer opacity-50 hover:opacity-100 text-white text-3xl"
                                         ></i>
                                     </a>
 
@@ -259,13 +259,13 @@ const Home: React.FC = () => {
                                     >
                                         <i
                                             title="View my Github"
-                                            className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100 text-4xl"
+                                            className="fa-brands fa-github text-white hover:cursor-pointer opacity-50 hover:opacity-100 text-3xl"
                                         ></i>
                                     </a>
                                     <div>
                                         <i
                                             title="Download my resume"
-                                            className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white text-4xl"
+                                            className="fa-solid fa-file-arrow-down hover:opacity-100 opacity-50 hover:cursor-pointer text-white text-3xl"
                                             onClick={() => onDownload()}
                                         />
                                     </div>
