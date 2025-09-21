@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import '../App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faListCheck, faDiagramProject, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 type AnchorLinkProps = {
     href: string;
