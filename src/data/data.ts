@@ -130,6 +130,7 @@ export const skills: Record<SkillCategory, Skill[]> = {
     ],
     Database: [
         { id: "sqlserver", name: "SQL Server", category: "Database", image: { src: "./tech_logos/sql_server.svg", alt: "SQL Server" } },
+        // Postgress DB
     ],
     "DevOps & Cloud": [
         { id: "azure-devops", name: "Azure DevOps", category: "DevOps & Cloud", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg", alt: "Azure DevOps" } },
@@ -149,5 +150,6 @@ export const skills: Record<SkillCategory, Skill[]> = {
         { id: "gmap", name: "Google Maps API", category: "Other Tools & Integration", image: { src: "./tech_logos/google-maps.svg", alt: "Google Maps API" } },
         { id: "openai", name: "OpenAI API", category: "Other Tools & Integration", image: { src: "./tech_logos/openai.svg", alt: "OpenAI" } },
         { id: "jira", name: "Jira", category: "Other Tools & Integration", image: { src: "./tech_logos/jira.svg", alt: "Jira" } },
+        // Google Analytics
     ],
 };
