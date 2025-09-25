@@ -130,7 +130,7 @@ export const skills: Record<SkillCategory, Skill[]> = {
     ],
     Database: [
         { id: "sqlserver", name: "SQL Server", category: "Database", image: { src: "./tech_logos/sql_server.svg", alt: "SQL Server" } },
-        // Postgress DB
+        { id: "postgresql", name: "PostgreSQL", category: "Database", image: { src: "./tech_logos/postgresql.svg", alt: "PostgreSQL" } },
     ],
     "DevOps & Cloud": [
         { id: "azure-devops", name: "Azure DevOps", category: "DevOps & Cloud", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg", alt: "Azure DevOps" } },
