@@ -238,7 +238,7 @@ const Home: React.FC = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <img
-                                        src="./ai-chipset.svg"
+                                        src="./images/dashboard/ai-chipset.svg"
                                         width="35px"
                                         alt="AI"
                                         className="hover:cursor-pointer opacity-50 hover:opacity-100"

@@ -5,7 +5,7 @@ const Hero: React.FC = () => {
       <div className="relative w-fit mx-auto leading-none">                                   
           <div className="relative flex flex-col items-start">
               <img
-                  src="./phonelaptop.png"
+                  src="./images/dashboard/phonelaptop.png"
                   alt="phone-laptop"
                   className="absolute sm:left-20 md:left-40 lg:left-80 top-[-7rem] h-[200px] sm:h-[300px] object-contain z-0"
               />
