@@ -96,16 +96,6 @@ export const productListPersonal = [
 
 export const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // eslint-disable-line
 
-            /* -------------------------------------
-                Service Id: service_0cl4yjf
-                Template Id: template_c2ne7jm
-                 Public key: ajonPi_KH7jk3zPCW
-            ------------------------------------- */
-
-export const serviceId = 'service_0cl4yjf';
-export const templateId = 'template_c2ne7jm';
-export const publicKey = 'ajonPi_KH7jk3zPCW';
-
 export const skills: Record<SkillCategory, Skill[]> = {
     "UI / Front-End": [
         { id: "html", name: "HTML", category: "UI / Front-End", image: { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", alt: "HTML" } },

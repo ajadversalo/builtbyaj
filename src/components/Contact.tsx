@@ -3,7 +3,7 @@ import PageContainer from '../components/PageContainer';
 
 import emailjs from 'emailjs-com';
 
-import { emailPattern, serviceId, templateId, publicKey, contactSubText } from '../data/data';
+import { emailPattern, contactSubText } from '../data/data';
 
 import { Input, Button } from "antd";
 const { TextArea } = Input;
@@ -76,7 +76,7 @@ function Contact(props: ContactProps) {
     const handleSendEmail = (event: React.FormEvent) => {
         if (event) {
             event.preventDefault();
-            emailjs.sendForm(serviceId, templateId, (formRef?.current) ? formRef?.current : '', publicKey)
+            emailjs.sendForm(process.env.REACT_APP_SERVICE_ID!, process.env.REACT_APP_SERVICE_ID!, (formRef?.current) ? formRef?.current : '', process.env.REACT_APP_PUBLIC_KEY!)
                 .then((result: any) => {
                     if (result.text) {
                         setPopupMsg('Message successfully sent!');
