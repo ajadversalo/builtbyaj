@@ -109,7 +109,7 @@ function Projects(props: ProjectsProps) {
                 <div className="flex flex-col 2xl:flex-row" >
                     <div className={"w-[20%]"}>
                         <img
-                            src={`./centra-logo.png`}
+                            src={`./images/companies/centra-logo.png`}
                             alt='centra-logo'
                             style={{ width: '7rem', paddingTop: '1.5rem', paddingBottom: '0.5rem' }} />
                     </div>
@@ -140,7 +140,7 @@ function Projects(props: ProjectsProps) {
                 <Divider className="bg-white mt-12" />
                 <div className="flex flex-col 2xl:flex-row">
                     <div className={"w-[20%]"}>
-                        <img src={`./genxys-logo-square.png`} alt='genxys-logo' style={{ width: '7rem', paddingTop: '1.5rem', paddingBottom: '0.5rem' }} />
+                        <img src={`./images/companies/genxys-logo-square.png`} alt='genxys-logo' style={{ width: '7rem', paddingTop: '1.5rem', paddingBottom: '0.5rem' }} />
                     </div>
                     <div className={"w-[100%] mt-6 2xl:pl-1"}>
                         <div className="text-md text-[#FFDD44] font-semibold hover:underline">
