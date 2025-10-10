@@ -120,7 +120,7 @@ const Home: React.FC = () => {
     const onDownload = () => {
         const link = document.createElement('a');
         link.download = 'ajadversalo-resume.pdf';
-        link.href = 'resume.pdf';
+        link.href = 'resume/resume.pdf';
         link.click();
     };
 
