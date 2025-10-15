@@ -8,7 +8,7 @@ type ProductCardProps = {
     description: string,
     isCritical: boolean,
     isLead: boolean,
-    index: number
+    index?: number
 }
 
 type ProjectsProps = {
@@ -29,11 +29,11 @@ function Projects(props: ProjectsProps) {
         { icon: "★", label: "Other Projects " }
     ];
 
-    const ProductCard = (props: ProductCardProps) => {
+    const ProductCard = (props: ProductCardProps) => {        
         return (
             <div className="pt-2 flex flex-col justify-between mt-1">
                 <div className="w-100 text-indigo-100 font-semibold">
-                    <span className="pr-1">{props.index + 1}.</span>
+                    <span className="pr-1">{(props?.index ? props?.index : 0) + 1}.</span>
                     {props.title}
                     {props.isCritical &&
                         <Tooltip title="This is a critical application">
@@ -64,7 +64,7 @@ function Projects(props: ProjectsProps) {
         return (
             <div className="pt-2 flex flex-col justify-between mt-1">
                 <a href="https://aijabber.ca" target="_blank" rel="noreferrer" className="w-100 text-indigo-100 font-semibold hover:underline">
-                    <span className="pr-1">{props.index + 1}.</span>
+                    <span className="pr-1">{(props?.index ? props?.index : 0) + 1}.</span>
                     {props.title}
                 </a>
                 <div className="w-100 text-sm mt-1 text-gray-300">
@@ -115,7 +115,7 @@ function Projects(props: ProjectsProps) {
                     </div>
                     <div className={"w-[100%] mt-6 2xl:pl-1"}>
                         <div className="text-md text-[#FFDD44] font-semibold hover:underline">
-                            <a href="https://www.centrawindows.com" target="_blank" rel="noreferrer">Centra Windows</a>
+                            <a href="https://www.centrawindows.com" target="_blank" rel="noreferrer">Centra Group of Companies</a>
                         </div>
                         <div className="text-sm mt-1">
                             Centra Windows specializes in energy-efficient window and door replacements, offering customized products and installation services to improve home comfort and energy savings.
