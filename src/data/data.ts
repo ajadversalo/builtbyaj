@@ -54,55 +54,54 @@ export const productListGenXys = [
 ];
 
 export const productListCentra = [
-    {
-        title: 'CentraCalendar',
-        description: 'A calendar based scheduling software solution, designed to streamline operations across multiple departments, including manufacturing, installation, and shipping. This tool enables real-time tracking and scheduling of work orders, improving workflow visibility and coordination. The software integrates seamlessly with departmental needs, ensuring that each team stays informed and synchronized, ultimately reducing downtime and enhancing productivity.',
-        isCritical: true,
-        isLead: true
-    },
-    {
-        title: 'CentraManufacture',
-        description: 'This application is tailored for the window and door manufacturing process. This tool provides comprehensive, real-time insights into each stage of production, ensuring transparency and control from start to finish. Used by the manufacturing team, it captures and displays live production stats, enabling teams to monitor progress, optimize workflow, and address bottlenecks quickly. This solution empowers teams to maintain high standards of efficiency and quality throughout the manufacturing lifecycle.',
-        isCritical: true,
-        isLead: true
-    },
-    {
-        title: 'CentraMetrics',
-        description: '',
-        isCritical: false,
-        isLead: false
-    },
-    {
-        title: 'CentraService',
-        description: '',
-        isCritical: true,
-        isLead: false
-    },
-    {
-        title: 'CentraRequest',
-        description: 'A streamlined platform for managing essential company tasks, allowing employees to fill and submit forms for share purchases, vacation requests, staff onboarding, terminations, and more. This application centralizes administrative workflows, making it easier for teams to handle routine processes efficiently.',
-        isCritical: false,
-        isLead: false
-    },
-    {
-        title: 'CentraCustomers',
-        description: '',
-        isCritical: false,
-        isLead: false
-    },
-    {
-        title: 'CentraAccess',
-        description: '',
-        isCritical: false,
-        isLead: false
-    },
-    {
-        title: 'CentraWindows.com',
-        description: '',
-        isCritical: true,
-        isLead: false
-    }
-
+  {
+    title: 'CentraCalendar',
+    description: 'A calendar-based scheduling software designed to streamline operations across departments, including manufacturing, installation, and shipping. Enables real-time tracking, workflow visibility, and coordination to boost productivity.',
+    isCritical: true,
+    isLead: true
+  },
+  {
+    title: 'CentraManufacture',
+    description: 'An application built for the window and door manufacturing process, providing live production insights, workflow optimization, and bottleneck detection to maintain efficiency and quality control.',
+    isCritical: true,
+    isLead: true
+  },
+  {
+    title: 'CentraMetrics',
+    description: 'A performance dashboard that consolidates key operational metrics across departments. It provides data-driven insights into production, scheduling, and service performance for better decision-making.',
+    isCritical: false,
+    isLead: false
+  },
+  {
+    title: 'CentraService',
+    description: 'A service management system focused on post-installation workflows, including repairs, warranty claims, and maintenance tracking. It ensures customer issues are logged, scheduled, and resolved efficiently.',
+    isCritical: true,
+    isLead: false
+  },
+  {
+    title: 'CentraRequest',
+    description: 'A streamlined platform for managing internal company requests, from share purchases and vacation forms to onboarding and terminations, centralizing administrative workflows for efficiency.',
+    isCritical: false,
+    isLead: false
+  },
+  {
+    title: 'CentraCustomers',
+    description: 'A customer relationship management (CRM) system designed to maintain client records, track interactions, and provide teams with a unified view of customer data across all branches.',
+    isCritical: false,
+    isLead: false
+  },
+  {
+    title: 'CentraAccess',
+    description: 'An internal access and permissions management tool that controls user roles and security levels across Centra’s applications, ensuring proper authorization and data protection.',
+    isCritical: false,
+    isLead: false
+  },
+  {
+    title: 'CentraWindows.com',
+    description: 'The official company website serving as the primary marketing and customer engagement platform. It features product information, lead generation, and integration with backend systems for quoting and service requests.',
+    isCritical: true,
+    isLead: false
+  }
 ];
 
 export const productListPersonal = [
